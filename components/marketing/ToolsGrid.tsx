@@ -10,12 +10,12 @@ const CATEGORIES = [
 ];
 
 const TOOLS = [
-  { icon: Image, bg: 'bg-primary-bg', color: 'text-primary', gradientFrom: 'from-primary/5', name: 'Image Compressor', desc: 'Compress images without losing quality', slug: 'image-compressor' },
-  { icon: Tag, bg: 'bg-blue-bg', color: 'text-blue', gradientFrom: 'from-blue/5', name: 'Meta Tag Generator', desc: 'Generate SEO meta tags instantly', slug: 'meta-tag-generator' },
-  { icon: Type, bg: 'bg-green-bg', color: 'text-green', gradientFrom: 'from-green/5', name: 'Word Counter', desc: 'Count words and characters in your text', slug: 'word-counter' },
-  { icon: FileText, bg: 'bg-primary-bg', color: 'text-primary', gradientFrom: 'from-primary/5', name: 'PDF Compressor', desc: 'Reduce PDF file size without losing quality', slug: 'pdf-compressor' },
-  { icon: Globe, bg: 'bg-blue-bg', color: 'text-blue', gradientFrom: 'from-blue/5', name: 'Domain Authority Checker', desc: 'Check domain authority and SEO score', slug: 'domain-authority' },
-  { icon: Code2, bg: 'bg-green-bg', color: 'text-green', gradientFrom: 'from-green/5', name: 'JSON Formatter', desc: 'Format and validate JSON data easily', slug: 'json-formatter' },
+  { icon: Image, bg: 'bg-primary-bg', color: 'text-primary', gradientFrom: 'from-primary/5', name: 'Image Compressor', desc: 'Compress images without losing quality', href: '/tools/image-tools/image-compressor' },
+  { icon: Tag, bg: 'bg-blue-bg', color: 'text-blue', gradientFrom: 'from-blue/5', name: 'Meta Tag Generator', desc: 'Generate SEO meta tags instantly', href: '/tools/seo-tools/meta-tag-generator' },
+  { icon: Type, bg: 'bg-green-bg', color: 'text-green', gradientFrom: 'from-green/5', name: 'Word Counter', desc: 'Count words and characters in your text', href: '/tools/text-tools/word-counter' },
+  { icon: FileText, bg: 'bg-primary-bg', color: 'text-primary', gradientFrom: 'from-primary/5', name: 'PDF Compressor', desc: 'Reduce PDF file size without losing quality', href: '/tools/pdf-tools/pdf-compressor' },
+  { icon: Globe, bg: 'bg-blue-bg', color: 'text-blue', gradientFrom: 'from-blue/5', name: 'Domain Authority Checker', desc: 'Check domain authority and SEO score', href: '/tools/seo-tools/domain-authority-checker' },
+  { icon: Code2, bg: 'bg-green-bg', color: 'text-green', gradientFrom: 'from-green/5', name: 'JSON Formatter', desc: 'Format and validate JSON data easily', href: '/tools/developer-tools/json-formatter' },
 ];
 
 export function ToolsGrid() {
@@ -65,7 +65,7 @@ export function ToolsGrid() {
             </motion.h2>
           </div>
           <a
-            href="#"
+            href="/tools"
             className="hidden items-center gap-1.5 text-[14px] font-semibold text-gradient-primary hover:opacity-80 transition-opacity md:inline-flex"
           >
             View all tools <ArrowRight size={14} className="text-primary" />
@@ -76,8 +76,8 @@ export function ToolsGrid() {
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
           {TOOLS.map((tool, i) => (
             <motion.a
-              key={tool.slug}
-              href={`/tools/${tool.slug}`}
+              key={tool.href}
+              href={tool.href}
               initial={{ opacity: 0, x: -20, scale: 0.95 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.2 }}
