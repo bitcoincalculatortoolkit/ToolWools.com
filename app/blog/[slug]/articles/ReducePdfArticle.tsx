@@ -9,7 +9,7 @@ export default function ReducePdfArticle() {
 
       {/* Meta row */}
       <div className="flex flex-wrap items-center gap-3 text-sm text-muted mb-8 pb-6 border-b border-border">
-        <span>December 28, 2024</span>
+        <span>May 1, 2026</span>
         <span className="w-1 h-1 rounded-full bg-muted" />
         <span>5 min read</span>
         <span className="w-1 h-1 rounded-full bg-muted" />
@@ -27,7 +27,7 @@ export default function ReducePdfArticle() {
           fonts, flattening form fields, removing metadata, and using dedicated compression tools
           like the{' '}
           <Link href="/tools/pdf-tools/pdf-compressor" className="text-primary font-medium hover:underline">
-            ToolStack PDF Compressor
+            ToolWools PDF Compressor
           </Link>. Most PDFs can be reduced by 40-70% without visible quality loss.
         </p>
       </div>
@@ -133,7 +133,7 @@ export default function ReducePdfArticle() {
           The fastest and most reliable approach is using a dedicated compression tool that applies
           all the above techniques automatically. The{' '}
           <Link href="/tools/pdf-tools/pdf-compressor" className="text-primary font-medium hover:underline">
-            ToolStack PDF Compressor
+            ToolWools PDF Compressor
           </Link>{' '}
           offers multiple compression levels:
         </p>

@@ -15,7 +15,7 @@ export default function ArticleLayout({ post, children }: ArticleLayoutProps) {
   return (
     <div className="min-h-screen bg-bg">
       {/* Breadcrumb */}
-      <div className="bg-white border-b border-border">
+      <div className="bg-white border-b border-border pt-20">
         <div className="max-w-page mx-auto px-4 sm:px-6 py-3">
           <nav className="flex items-center text-sm text-muted" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-primary transition-colors">
@@ -46,7 +46,7 @@ export default function ArticleLayout({ post, children }: ArticleLayoutProps) {
             <div className="mt-6 flex items-center gap-3 flex-wrap">
               <span className="text-sm font-medium text-muted">Share:</span>
               <a
-                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`https://toolstack.io/blog/${post.slug}`)}`}
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`https://toolwools.com/blog/${post.slug}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-[#1DA1F2]/10 text-[#1DA1F2] hover:bg-[#1DA1F2]/20 transition-colors"
@@ -54,7 +54,7 @@ export default function ArticleLayout({ post, children }: ArticleLayoutProps) {
                 Twitter
               </a>
               <a
-                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://toolstack.io/blog/${post.slug}`)}`}
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://toolwools.com/blog/${post.slug}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-[#0A66C2]/10 text-[#0A66C2] hover:bg-[#0A66C2]/20 transition-colors"

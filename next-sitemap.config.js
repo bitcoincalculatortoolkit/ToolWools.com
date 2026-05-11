@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://toolstack.io',
+  siteUrl: 'https://toolwools.com',
   generateRobotsTxt: true,
   changefreq: 'weekly',
   priority: 0.7,
@@ -11,7 +11,7 @@ module.exports = {
       { userAgent: '*', allow: '/' },
       { userAgent: '*', disallow: '/api/' },
     ],
-    additionalSitemaps: ['https://toolstack.io/sitemap-tools.xml'],
+    additionalSitemaps: ['https://toolwools.com/sitemap-tools.xml'],
   },
   additionalPaths: async (config) => {
     const tools = [

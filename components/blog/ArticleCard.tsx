@@ -21,12 +21,22 @@ export default function ArticleCard({ post }: { post: BlogPost }) {
 
   return (
     <Link href={`/blog/${post.slug}`} className="group block">
-      <article className="bg-white rounded-card border border-border overflow-hidden shadow-card transition-all duration-300 group-hover:shadow-hover group-hover:-translate-y-1">
-        {/* Image placeholder */}
+      <article className="bg-white rounded-card border border-gray-100/60 overflow-hidden shadow-card transition-all duration-300 group-hover:shadow-hover group-hover:-translate-y-1">
+        {/* Image area */}
         <div
-          className={`h-48 bg-gradient-to-br ${gradient} relative overflow-hidden`}
+          className={`h-52 bg-gradient-to-br ${gradient} relative overflow-hidden`}
         >
+          {/* Subtle pattern overlay */}
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage:
+                'radial-gradient(circle at 25% 25%, rgba(255,255,255,0.4) 1px, transparent 1px), radial-gradient(circle at 75% 75%, rgba(255,255,255,0.3) 1px, transparent 1px)',
+              backgroundSize: '24px 24px',
+            }}
+          />
           <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-300" />
+          {/* Category badge bottom-left */}
           <div className="absolute bottom-3 left-3">
             <span
               className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${badgeColor}`}
@@ -34,11 +44,17 @@ export default function ArticleCard({ post }: { post: BlogPost }) {
               {post.category}
             </span>
           </div>
+          {/* Reading time badge top-right */}
+          <div className="absolute top-3 right-3">
+            <span className="inline-block px-2.5 py-1 rounded-full text-[11px] font-medium bg-white/90 backdrop-blur-sm text-gray-700 shadow-sm">
+              {post.readingTime}
+            </span>
+          </div>
         </div>
 
         {/* Content */}
         <div className="p-5">
-          <h3 className="text-lg font-semibold text-dark leading-tight mb-2 group-hover:text-primary transition-colors duration-200 line-clamp-2">
+          <h3 className="text-xl font-semibold text-dark leading-tight mb-2 group-hover:text-primary transition-colors duration-200 line-clamp-2">
             {post.title}
           </h3>
           <p className="text-sm text-muted leading-relaxed mb-4 line-clamp-2">

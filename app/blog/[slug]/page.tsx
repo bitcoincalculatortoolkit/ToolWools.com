@@ -18,7 +18,7 @@ import ReducePdfArticle from './articles/ReducePdfArticle';
 
 const articleComponents: Record<string, React.ComponentType> = {
   'how-to-compress-images-for-web': CompressImagesArticle,
-  'best-free-seo-tools-2025': BestSeoToolsArticle,
+  'best-free-seo-tools-2026': BestSeoToolsArticle,
   'json-formatting-guide-for-developers': JsonFormattingArticle,
   'reduce-pdf-file-size-guide': ReducePdfArticle,
 };
@@ -42,8 +42,8 @@ export function generateMetadata({
     openGraph: {
       title: post.seoTitle,
       description: post.seoDescription,
-      url: `https://toolstack.io/blog/${post.slug}`,
-      siteName: 'ToolStack',
+      url: `https://toolwools.com/blog/${post.slug}`,
+      siteName: 'ToolWools',
       type: 'article',
       publishedTime: post.date,
       images: [
@@ -60,7 +60,7 @@ export function generateMetadata({
       description: post.seoDescription,
     },
     alternates: {
-      canonical: `https://toolstack.io/blog/${post.slug}`,
+      canonical: `https://toolwools.com/blog/${post.slug}`,
     },
   };
 }
@@ -94,17 +94,17 @@ export default function BlogPostPage({
             dateModified: post.date,
             author: {
               '@type': 'Organization',
-              name: 'ToolStack',
-              url: 'https://toolstack.io',
+              name: 'ToolWools',
+              url: 'https://toolwools.com',
             },
             publisher: {
               '@type': 'Organization',
-              name: 'ToolStack',
-              url: 'https://toolstack.io',
+              name: 'ToolWools',
+              url: 'https://toolwools.com',
             },
             mainEntityOfPage: {
               '@type': 'WebPage',
-              '@id': `https://toolstack.io/blog/${post.slug}`,
+              '@id': `https://toolwools.com/blog/${post.slug}`,
             },
             keywords: post.tags.join(', '),
           }),

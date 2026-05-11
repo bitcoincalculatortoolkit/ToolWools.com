@@ -5,18 +5,18 @@ import { Nav } from '@/components/layout/Nav';
 import { Footer } from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
-  title: 'Blog — Free Tools Tips & Guides | ToolStack',
+  title: 'Blog — Free Tools Tips & Guides | ToolWools',
   description:
     'Tips, guides, and insights on image compression, SEO, PDF optimization, JSON formatting, and getting more done with free online tools.',
   openGraph: {
-    title: 'Blog — Free Tools Tips & Guides | ToolStack',
+    title: 'Blog — Free Tools Tips & Guides | ToolWools',
     description:
       'Tips, guides, and insights for getting more done with free online tools.',
-    url: 'https://toolstack.io/blog',
-    siteName: 'ToolStack',
+    url: 'https://toolwools.com/blog',
+    siteName: 'ToolWools',
     type: 'website',
   },
-  alternates: { canonical: 'https://toolstack.io/blog' },
+  alternates: { canonical: 'https://toolwools.com/blog' },
 };
 
 export default function BlogIndexPage() {
@@ -25,7 +25,7 @@ export default function BlogIndexPage() {
   return (
     <>
       <Nav />
-      <main className="min-h-screen bg-bg">
+      <main className="min-h-screen bg-bg pt-20">
         {/* Header */}
         <section className="bg-white border-b border-border">
           <div className="max-w-page mx-auto px-4 sm:px-6 py-12 lg:py-16 text-center">

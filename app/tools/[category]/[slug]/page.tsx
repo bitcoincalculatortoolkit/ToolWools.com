@@ -12,7 +12,7 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const tool = getToolBySlug(params.slug);
   if (!tool) {
-    return { title: 'Tool Not Found | ToolStack' };
+    return { title: 'Tool Not Found | ToolWools' };
   }
 
   return {
@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: tool.seoTitle,
       description: tool.seoDescription,
-      url: `https://toolstack.io/tools/${tool.category}/${tool.slug}`,
-      siteName: 'ToolStack',
+      url: `https://toolwools.com/tools/${tool.category}/${tool.slug}`,
+      siteName: 'ToolWools',
       type: 'website',
       images: [{
         url: `/api/og?title=${encodeURIComponent(tool.name)}&description=${encodeURIComponent(tool.description)}&category=${encodeURIComponent(tool.categoryLabel)}`,
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: [`/api/og?title=${encodeURIComponent(tool.name)}&description=${encodeURIComponent(tool.description)}&category=${encodeURIComponent(tool.categoryLabel)}`],
     },
     alternates: {
-      canonical: `https://toolstack.io/tools/${tool.category}/${tool.slug}`,
+      canonical: `https://toolwools.com/tools/${tool.category}/${tool.slug}`,
     },
   };
 }
@@ -59,19 +59,19 @@ export default function ToolPage({ params }: PageProps) {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://toolstack.io',
+        item: 'https://toolwools.com',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: tool.categoryLabel,
-        item: `https://toolstack.io/tools/${tool.category}`,
+        item: `https://toolwools.com/tools/${tool.category}`,
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: tool.name,
-        item: `https://toolstack.io/tools/${tool.category}/${tool.slug}`,
+        item: `https://toolwools.com/tools/${tool.category}/${tool.slug}`,
       },
     ],
   };
@@ -81,7 +81,7 @@ export default function ToolPage({ params }: PageProps) {
     '@type': 'WebApplication',
     name: tool.name,
     description: tool.seoDescription,
-    url: `https://toolstack.io/tools/${tool.category}/${tool.slug}`,
+    url: `https://toolwools.com/tools/${tool.category}/${tool.slug}`,
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Any',
     offers: {

@@ -4,12 +4,12 @@ export default function BestSeoToolsArticle() {
   return (
     <>
       <h1 className="text-2xl sm:text-3xl lg:text-4xl font-display text-dark leading-tight mb-4">
-        10 Best Free SEO Tools in 2025 (No Signup Required)
+        10 Best Free SEO Tools in 2026 (No Signup Required)
       </h1>
 
       {/* Meta row */}
       <div className="flex flex-wrap items-center gap-3 text-sm text-muted mb-8 pb-6 border-b border-border">
-        <span>January 10, 2025</span>
+        <span>May 5, 2026</span>
         <span className="w-1 h-1 rounded-full bg-muted" />
         <span>8 min read</span>
         <span className="w-1 h-1 rounded-full bg-muted" />
@@ -22,19 +22,19 @@ export default function BestSeoToolsArticle() {
       <div className="bg-blue-bg border border-blue-200 rounded-xl p-5 mb-8">
         <p className="text-sm font-semibold text-dark mb-1">Quick Summary</p>
         <p className="text-sm text-body leading-relaxed">
-          The best free SEO tools in 2025 include domain authority checkers, meta tag generators,
+          The best free SEO tools in 2026 include domain authority checkers, meta tag generators,
           keyword density analyzers, and SERP preview tools. The key advantage of no-signup tools
           is instant access — paste a URL or text and get results immediately. Below we cover 10
           tools that work without creating an account, including several from{' '}
           <Link href="/tools" className="text-primary font-medium hover:underline">
-            ToolStack&apos;s free suite
+            ToolWools&apos;s free suite
           </Link>.
         </p>
       </div>
 
       <section className="mb-8">
         <h2 className="text-xl sm:text-2xl font-display text-dark mb-4">
-          Why Free SEO Tools Still Matter in 2025
+          Why Free SEO Tools Still Matter in 2026
         </h2>
         <p className="text-body leading-relaxed mb-4">
           Premium SEO suites like Ahrefs, SEMrush, and Moz Pro are powerful, but they come with
@@ -63,7 +63,7 @@ export default function BestSeoToolsArticle() {
         </p>
         <p className="text-body leading-relaxed">
           Use it to benchmark against competitors, identify link-building opportunities, and track
-          your authority growth over time. The ToolStack version provides instant results with
+          your authority growth over time. The ToolWools version provides instant results with
           gauge-style visualizations for easy interpretation.
         </p>
       </section>
@@ -119,7 +119,7 @@ export default function BestSeoToolsArticle() {
           <Link href="/tools/developer-tools/json-formatter" className="text-primary font-medium hover:underline">
             JSON Formatter
           </Link>{' '}
-          on ToolStack can validate your schema output to ensure it is syntactically correct before
+          on ToolWools can validate your schema output to ensure it is syntactically correct before
           you add it to your site.
         </p>
       </section>
@@ -232,7 +232,7 @@ export default function BestSeoToolsArticle() {
       {/* CTA */}
       <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-6 mt-10">
         <h3 className="text-lg font-display text-dark mb-2">
-          Try ToolStack&apos;s Free SEO Tools
+          Try ToolWools&apos;s Free SEO Tools
         </h3>
         <p className="text-sm text-body mb-4">
           Check your domain authority, generate perfect meta tags, and optimize your content — all

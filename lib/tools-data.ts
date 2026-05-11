@@ -21,7 +21,7 @@ const toolsRegistry: ToolData[] = [
     description: 'Compress JPG, PNG & WEBP images without losing quality. Reduce file sizes up to 80%.',
     longDescription:
       'Our free online Image Compressor reduces your image file sizes by up to 80% with minimal quality loss. Supports JPG, PNG, and WEBP formats. All processing happens in your browser — your images are never uploaded to any server. Compress multiple images at once with adjustable quality settings.',
-    seoTitle: 'Free Image Compressor — Compress JPG, PNG, WEBP Online | ToolStack',
+    seoTitle: 'Free Image Compressor — Compress JPG, PNG, WEBP Online | ToolWools',
     seoDescription:
       'Compress images up to 80% smaller without quality loss. Free online JPG, PNG, WEBP compressor. No signup, no limits, works in your browser.',
     tags: ['image', 'compress', 'jpg', 'png', 'webp', 'resize', 'optimize'],
@@ -57,7 +57,7 @@ const toolsRegistry: ToolData[] = [
     description: 'Count words, characters, sentences & paragraphs instantly. Get reading time estimates.',
     longDescription:
       'The Word Counter tool provides real-time text analysis as you type. Get instant counts for words, characters (with and without spaces), sentences, paragraphs, and estimated reading time. Perfect for writers, students, and content creators who need to hit specific word counts.',
-    seoTitle: 'Free Word Counter — Count Words, Characters, Sentences Online | ToolStack',
+    seoTitle: 'Free Word Counter — Count Words, Characters, Sentences Online | ToolWools',
     seoDescription:
       'Count words, characters, sentences, and paragraphs in real-time. Free online word counter with reading time estimate. No signup needed.',
     tags: ['text', 'word count', 'character count', 'writing', 'content'],
@@ -93,7 +93,7 @@ const toolsRegistry: ToolData[] = [
     description: 'Format, validate & minify JSON data with syntax highlighting and tree view.',
     longDescription:
       'The JSON Formatter tool lets you paste raw JSON and instantly format it with proper indentation, validate its structure, minify it for production, or explore it in a collapsible tree view. Features syntax highlighting and detailed error messages with line numbers.',
-    seoTitle: 'Free JSON Formatter & Validator — Format, Minify, Tree View | ToolStack',
+    seoTitle: 'Free JSON Formatter & Validator — Format, Minify, Tree View | ToolWools',
     seoDescription:
       'Format, validate, and minify JSON online. Free JSON formatter with syntax highlighting, tree view, and error detection. No signup required.',
     tags: ['json', 'format', 'validate', 'minify', 'developer', 'api'],
@@ -129,7 +129,7 @@ const toolsRegistry: ToolData[] = [
     description: 'Generate perfect meta tags for SEO. Live Google SERP & social media previews.',
     longDescription:
       'Create optimized meta tags for your web pages with our free Meta Tag Generator. See live previews of how your page will appear in Google search results and social media shares. Includes Open Graph and Twitter Card tags with character limit indicators and one-click copy.',
-    seoTitle: 'Free Meta Tag Generator — SEO Meta Tags with SERP Preview | ToolStack',
+    seoTitle: 'Free Meta Tag Generator — SEO Meta Tags with SERP Preview | ToolWools',
     seoDescription:
       'Generate perfect meta tags for SEO with live Google SERP and social media previews. Free Open Graph and Twitter Card generator. Copy-ready HTML output.',
     tags: ['seo', 'meta tags', 'open graph', 'twitter card', 'serp', 'html'],
@@ -165,7 +165,7 @@ const toolsRegistry: ToolData[] = [
     description: 'Compress PDF files to reduce size. Choose from multiple compression levels.',
     longDescription:
       'Reduce your PDF file sizes with our free PDF Compressor. Choose from low, medium, or high compression levels to balance quality and file size. Drag and drop up to 5 files at once. All processing happens in your browser for complete privacy.',
-    seoTitle: 'Free PDF Compressor — Reduce PDF Size Online | ToolStack',
+    seoTitle: 'Free PDF Compressor — Reduce PDF Size Online | ToolWools',
     seoDescription:
       'Compress PDF files up to 70% smaller. Free online PDF compressor with multiple compression levels. No signup, drag & drop, works in your browser.',
     tags: ['pdf', 'compress', 'reduce size', 'optimize', 'document'],
@@ -201,7 +201,7 @@ const toolsRegistry: ToolData[] = [
     description: 'Check domain authority, page authority, spam score & backlink metrics instantly.',
     longDescription:
       'Analyze any website\'s SEO strength with our Domain Authority Checker. Get instant metrics including Domain Authority (DA), Page Authority (PA), Spam Score, backlink count, referring domains, and domain age. Beautiful gauge charts and detailed health analysis help you understand your SEO standing.',
-    seoTitle: 'Free Domain Authority Checker — DA, PA, Spam Score & Backlinks | ToolStack',
+    seoTitle: 'Free Domain Authority Checker — DA, PA, Spam Score & Backlinks | ToolWools',
     seoDescription:
       'Check domain authority, page authority, and spam score for any website. Free DA checker with backlink analysis, referring domains, and SEO health score.',
     tags: ['seo', 'domain authority', 'backlinks', 'spam score', 'page authority', 'da checker'],

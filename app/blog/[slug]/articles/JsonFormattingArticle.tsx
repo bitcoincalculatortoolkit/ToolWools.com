@@ -9,7 +9,7 @@ export default function JsonFormattingArticle() {
 
       {/* Meta row */}
       <div className="flex flex-wrap items-center gap-3 text-sm text-muted mb-8 pb-6 border-b border-border">
-        <span>January 5, 2025</span>
+        <span>May 3, 2026</span>
         <span className="w-1 h-1 rounded-full bg-muted" />
         <span>7 min read</span>
         <span className="w-1 h-1 rounded-full bg-muted" />
@@ -26,7 +26,7 @@ export default function JsonFormattingArticle() {
           files. This guide covers proper formatting rules, common validation errors, debugging
           techniques, and tools to make working with JSON painless. Use the{' '}
           <Link href="/tools/developer-tools/json-formatter" className="text-primary font-medium hover:underline">
-            ToolStack JSON Formatter
+            ToolWools JSON Formatter
           </Link>{' '}
           for instant formatting, validation, minification, and tree-view exploration.
         </p>
@@ -91,7 +91,7 @@ export default function JsonFormattingArticle() {
         <p className="text-body leading-relaxed">
           The{' '}
           <Link href="/tools/developer-tools/json-formatter" className="text-primary font-medium hover:underline">
-            ToolStack JSON Formatter
+            ToolWools JSON Formatter
           </Link>{' '}
           lets you switch between formatted (pretty-printed) and minified views with one click, and
           includes syntax highlighting that color-codes keys, strings, numbers, and booleans for easy
@@ -195,7 +195,7 @@ export default function JsonFormattingArticle() {
         </h2>
         <ul className="list-disc list-inside space-y-2 text-body mb-4 ml-2">
           <li>Use camelCase for keys (consistent with JavaScript conventions)</li>
-          <li>Return ISO 8601 date strings (e.g., &quot;2025-01-05T12:00:00Z&quot;)</li>
+          <li>Return ISO 8601 date strings (e.g., &quot;2026-05-03T12:00:00Z&quot;)</li>
           <li>Wrap responses in a data envelope for consistent structure</li>
           <li>Include pagination metadata for list endpoints</li>
           <li>Use null for absent values, never empty strings or &quot;N/A&quot;</li>

@@ -5,7 +5,7 @@ export const runtime = 'edge';
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
-  const title = searchParams.get('title') || 'ToolStack';
+  const title = searchParams.get('title') || 'ToolWools';
   const description = searchParams.get('description') || 'Free Online Tools';
   const category = searchParams.get('category') || '';
 
@@ -66,7 +66,7 @@ export async function GET(req: NextRequest) {
               <span style={{ color: 'white', fontSize: '20px', fontWeight: 800 }}>T</span>
             </div>
             <span style={{ color: 'white', fontSize: '28px', fontWeight: 700, letterSpacing: '-0.02em' }}>
-              ToolStack
+              ToolWools
             </span>
           </div>
           {category && (
@@ -121,7 +121,7 @@ export async function GET(req: NextRequest) {
             </span>
           </div>
           <span style={{ color: '#6B7280', fontSize: '18px', fontWeight: 600 }}>
-            toolstack.io
+            toolwools.com
           </span>
         </div>
       </div>

@@ -9,7 +9,7 @@ export default function CompressImagesArticle() {
 
       {/* Meta row */}
       <div className="flex flex-wrap items-center gap-3 text-sm text-muted mb-8 pb-6 border-b border-border">
-        <span>January 15, 2025</span>
+        <span>May 8, 2026</span>
         <span className="w-1 h-1 rounded-full bg-muted" />
         <span>6 min read</span>
         <span className="w-1 h-1 rounded-full bg-muted" />
@@ -26,7 +26,7 @@ export default function CompressImagesArticle() {
           PNG for graphics), resize to actual display dimensions, use lossy compression at 75-80% quality,
           enable lazy loading, and leverage browser-based tools like the{' '}
           <Link href="/tools/image-tools/image-compressor" className="text-primary font-medium hover:underline">
-            ToolStack Image Compressor
+            ToolWools Image Compressor
           </Link>{' '}
           that process files without server uploads.
         </p>
@@ -120,7 +120,7 @@ export default function CompressImagesArticle() {
         <p className="text-body leading-relaxed">
           Most web images benefit from lossy compression. The{' '}
           <Link href="/tools/image-tools/image-compressor" className="text-primary font-medium hover:underline">
-            ToolStack Image Compressor
+            ToolWools Image Compressor
           </Link>{' '}
           lets you adjust quality from 10% to 100%, giving you full control over the
           quality-versus-size tradeoff.

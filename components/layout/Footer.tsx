@@ -41,7 +41,7 @@ export function Footer() {
                   <path d="M3 8h10M8 3v10M5 5l6 6M11 5l-6 6" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
               </span>
-              <span className="text-[16px] font-bold text-dark">ToolStack</span>
+              <span className="text-[16px] font-bold text-dark">ToolWools</span>
             </Link>
             <p className="mt-4 max-w-[240px] text-[13px] leading-relaxed text-muted">
               All-in-one online tools platform for SEO, Images, PDFs, Text, AI and Developers.
@@ -112,7 +112,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-14 flex flex-col items-start justify-between gap-3 border-t border-border/40 pt-7 text-[12px] text-muted sm:flex-row sm:items-center">
-          <p>© 2025 ToolStack. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} ToolWools. All rights reserved.</p>
           <p className="flex items-center gap-1">
             Made with{' '}
             <span className="inline-block animate-heart-beat text-red-500">♥</span>

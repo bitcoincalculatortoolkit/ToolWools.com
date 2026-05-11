@@ -5,19 +5,19 @@ import { Footer } from '@/components/layout/Footer';
 import { ToolsDirectoryClient } from './ToolsDirectoryClient';
 
 export const metadata: Metadata = {
-  title: 'All Free Online Tools | ToolStack',
+  title: 'All Free Online Tools | ToolWools',
   description:
     'Browse all free online tools — SEO tools, image compressor, PDF compressor, word counter, JSON formatter, meta tag generator & more. No signup needed.',
   openGraph: {
-    title: 'All Free Online Tools | ToolStack',
+    title: 'All Free Online Tools | ToolWools',
     description:
       'Browse 100+ free tools for SEO, images, PDFs, text & development. No signup, no limits.',
-    url: 'https://toolstack.io/tools',
-    siteName: 'ToolStack',
+    url: 'https://toolwools.com/tools',
+    siteName: 'ToolWools',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://toolstack.io/tools',
+    canonical: 'https://toolwools.com/tools',
   },
 };
 

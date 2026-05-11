@@ -94,7 +94,7 @@ export function ToolDemo() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.4 }}
-              href="#tools"
+              href="/tools/image-tools/image-compressor"
               className="group mt-6 inline-flex items-center gap-1.5 text-[14px] font-semibold text-primary transition-all duration-200 hover:gap-2.5"
             >
               Try Image Compressor <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
@@ -145,7 +145,7 @@ export function ToolDemo() {
                   <span className="block h-3 w-3 rounded-full bg-[#28CA41] transition-transform hover:scale-110" />
                 </div>
                 <div className="ml-auto rounded-md bg-gray-50 px-3 py-1 text-[11px] text-muted">
-                  toolstack.io/compress
+                  toolwools.com/compress
                 </div>
               </div>
 
