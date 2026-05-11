@@ -1,25 +1,29 @@
 import { Nav } from '@/components/layout/Nav';
 import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/marketing/Hero';
-import { ToolsExplorer } from '@/components/marketing/ToolsExplorer';
+import { StatsBar } from '@/components/marketing/StatsBar';
+import { ToolDemo } from '@/components/marketing/ToolDemo';
+import { ToolsGrid } from '@/components/marketing/ToolsGrid';
 import { FeatureShowcase } from '@/components/marketing/FeatureShowcase';
-import { StatsStrip } from '@/components/marketing/StatsStrip';
-import { CTASection } from '@/components/marketing/CTASection';
-import { ScrollProgress } from '@/components/ui/ScrollProgress';
+import { Testimonials } from '@/components/marketing/Testimonials';
+import { CTABanner } from '@/components/marketing/CTABanner';
+import { FAQ } from '@/components/marketing/FAQ';
 
 export default function HomePage() {
   return (
     <>
-      <ScrollProgress />
       <Nav />
       <main>
         <Hero />
-        <ToolsExplorer />
+        <StatsBar />
+        <ToolDemo />
+        <ToolsGrid />
         <FeatureShowcase />
-        <StatsStrip />
-        <CTASection />
+        <Testimonials />
+        <CTABanner />
       </main>
       <Footer />
+      <FAQ />
     </>
   );
 }

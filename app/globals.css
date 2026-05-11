@@ -3,86 +3,56 @@
 @tailwind utilities;
 
 :root {
-  /* Colors */
-  --color-warm-canvas: #fbfaf9;
-  --color-stone-surface: #f2f0ed;
-  --color-parchment-card: #f8f7f4;
-  --color-graphite: #474645;
-  --color-charcoal-primary: #343433;
-  --color-midnight: #121212;
-  --color-obsidian: #000000;
-  --color-ash: #848281;
-  --color-fog: #c6c6c6;
-  --color-smoke: #a7a7a7;
-  --color-pepper: #282624;
-  --color-ember-orange: #ff3e00;
-  --color-meadow-green: #00ca48;
-  --color-sky-blue: #0090ff;
-  --color-sunburst-yellow: #ffbb26;
-  --color-deep-amber: #d48f00;
-  --color-ocean-blue: #0086fc;
-  --color-ice-blue: #64c6ff;
-  --color-spearmint: #00c978;
-  --color-flamingo: #ff58ae;
-  --color-violet-pop: #9f4fff;
-  --color-coral-red: #ff2b3a;
-  --color-valid-green: #00c454;
-
-  /* Typography */
-  --font-display: 'Fraunces', 'Playfair Display', ui-serif, Georgia, serif;
-  --font-inter: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-
-  /* Spacing */
-  --spacing-unit: 4px;
-
-  /* Layout */
-  --page-max-width: 1200px;
-
-  /* Border Radius */
-  --radius-tags: 6px;
-  --radius-cards: 10px;
-  --radius-icons: 40px;
-  --radius-inputs: 10px;
-  --radius-buttons: 32px;
-  --radius-cards-lg: 24px;
-  --radius-pill: 32px;
-  --radius-illustrations: 72px;
-
-  /* Shadows */
-  --shadow-subtle: inset 0 0 0 1px rgba(242, 240, 237, 1);
-  --shadow-subtle-3: 0 0 0 1px rgba(0, 0, 0, 0.04);
-  --shadow-sm: 0 1px 6px rgba(0, 0, 0, 0.04), 0 0 24px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 0 24px rgba(0, 0, 0, 0.15);
-
-  /* Surfaces */
-  --surface-canvas: #fbfaf9;
-  --surface-card: #ffffff;
-  --surface-recessed: #f8f7f4;
-  --surface-stone: #f2f0ed;
-  --surface-dark: #000000;
-
-  /* Transitions */
-  --ease: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-spring: cubic-bezier(0.19, 1, 0.22, 1);
+  --color-primary: #F4511E;
+  --color-primary-light: #FF7043;
+  --color-primary-bg: #FFF3EE;
+  --color-blue: #2563EB;
+  --color-blue-bg: #EFF6FF;
+  --color-green: #10B981;
+  --color-green-bg: #F0FDF4;
+  --color-dark: #111111;
+  --color-body: #374151;
+  --color-muted: #6B7280;
+  --color-border: #E5E7EB;
+  --color-surface: #FFFFFF;
+  --color-bg: #FAFAFA;
+  --radius-card: 16px;
+  --radius-btn: 10px;
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  --shadow-hover: 0 4px 24px rgba(0,0,0,0.10);
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-body: 'Inter', sans-serif;
 }
 
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
-
-html,
-body {
-  background: var(--color-warm-canvas);
-  color: var(--color-graphite);
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* Hide scrollbar utility */
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-body);
+}
+
+/* Utility: visually hidden but accessible */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Scrollbar hide for tabs */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -91,25 +61,22 @@ html {
   scrollbar-width: none;
 }
 
-/* Grid texture for dark CTA */
-.grain {
-  background-image:
-    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 40px),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 40px);
-}
-
-/* Focus ring — accessible */
+/* Focus ring */
 :focus-visible {
-  outline: 2px solid var(--color-ember-orange);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
   border-radius: 4px;
 }
 
+/* Selection */
+::selection {
+  background: var(--color-primary-bg);
+  color: var(--color-dark);
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -117,46 +84,8 @@ html {
   }
 }
 
-/* Selection */
-::selection {
-  background: rgba(255, 62, 0, 0.12);
-  color: var(--color-midnight);
-}
-
-/* Display heading utility */
-.h-display {
-  font-family: var(--font-display);
-  font-weight: 500;
-  letter-spacing: -2.11px;
-  line-height: 1.09;
-}
-
-/* Heading-lg utility */
-.h-heading-lg {
-  font-family: var(--font-inter);
-  font-weight: 600;
-  letter-spacing: -1.14px;
-  line-height: 1.09;
-}
-
-/* Label kicker */
-.label-kicker {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-/* Card inset border — the signature */
-.card-inset {
-  box-shadow: inset 0 0 0 1px rgba(242, 240, 237, 1);
-}
-
-/* Card hover elevation */
-.card-hover {
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-.card-hover:hover {
-  box-shadow: 0 1px 6px rgba(0,0,0,0.04), 0 0 24px rgba(0,0,0,0.05);
-  transform: translateY(-2px);
+/* Dark mode overrides */
+.dark body {
+  background: #0a0a0a;
+  color: #e5e5e5;
 }

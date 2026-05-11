@@ -1,255 +1,175 @@
 'use client';
 
-import {
-  useEffect,
-  useRef,
-  useState,
-  type PointerEvent as ReactPointerEvent,
-} from 'react';
-import { motion, useInView } from 'framer-motion';
-import { Check } from 'lucide-react';
-import { useCountUp } from '@/lib/useCountUp';
+import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
+import { motion } from 'framer-motion';
+import { Check, ArrowRight } from 'lucide-react';
 
 export function FeatureShowcase() {
   return (
-    <section className="relative overflow-hidden">
-      <div className="mx-auto max-w-page px-5 py-20 md:px-8 md:py-28">
-        <SeoBlock />
-        <div className="h-28 md:h-36" />
-        <ImageBlock />
+    <section className="py-16">
+      <div className="mx-auto grid max-w-page grid-cols-1 gap-6 px-4 md:grid-cols-2 md:px-6">
+        <SeoCard />
+        <ImageCard />
       </div>
     </section>
   );
 }
 
-/* ─────────────────────────────────────────────────── */
-/* BLOCK 1 — SEO Suite                                */
-/* ─────────────────────────────────────────────────── */
-
-function SeoBlock() {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const inView = useInView(ref, { once: true, amount: 0.35 });
-
+/* ─── SEO Suite Card ─── */
+function SeoCard() {
   return (
-    <div
-      id="seo-suite"
-      ref={ref}
-      className="grid grid-cols-1 items-center gap-12 md:grid-cols-12 md:gap-16"
-    >
-      {/* Visual */}
-      <motion.div
-        initial={{ opacity: 0, x: -40 }}
-        animate={inView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
-        className="relative md:col-span-6"
-      >
-        <div className="relative overflow-hidden rounded-cards-lg bg-white p-8 shadow-subtle">
-          <span
-            aria-hidden
-            className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-ember/[0.06] blur-3xl"
-          />
-          <div className="relative flex flex-col items-center">
-            <ScoreRing inView={inView} value={92} />
-            <p className="mt-4 text-[11px] font-semibold uppercase tracking-widest text-ash">
-              Overall SEO Score
-            </p>
-            <p className="mt-1 text-[14px] text-graphite">
-              <span className="font-semibold text-charcoal">Excellent</span> &middot; 12 suggestions
-            </p>
+    <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-card">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        {/* Copy */}
+        <div>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-primary">SEO Suite</p>
+          <h3 className="mt-2 text-[22px] font-bold leading-tight text-dark md:text-[26px]">
+            Boost your rankings with smart SEO tools
+          </h3>
+          <p className="mt-2 text-[14px] text-muted">
+            Everything you need to improve visibility and outrank competitors.
+          </p>
+          <ul className="mt-4 space-y-2">
+            {['Keyword Research & Gap Analysis', 'Backlink Checker', 'SERP Analysis & Position Tracking', 'Site Audit & Core Web Vitals'].map((i) => (
+              <li key={i} className="flex items-center gap-2 text-[13px] text-body">
+                <Check size={14} className="text-green" strokeWidth={2.5} /> {i}
+              </li>
+            ))}
+          </ul>
+          <a href="#tools" className="mt-4 inline-flex items-center gap-1 text-[14px] font-semibold text-primary hover:underline">
+            Explore SEO Tools <ArrowRight size={14} />
+          </a>
+        </div>
+
+        {/* Mockup */}
+        <div className="rounded-xl border border-gray-100 bg-bg p-5 shadow-sm">
+          <div className="flex items-center justify-between">
+            <span className="text-[12px] font-medium text-muted">SEO Score</span>
+            <span className="text-muted">⋯</span>
           </div>
-          <div className="mt-8 space-y-4">
-            <MetricBar label="Title Tag" value={95} inView={inView} delay={0.4} />
-            <MetricBar label="Meta Description" value={80} inView={inView} delay={0.5} />
-            <MetricBar label="Page Speed" value={91} inView={inView} delay={0.6} />
-            <MetricBar label="Backlinks" value={55} inView={inView} delay={0.7} />
+          <div className="mt-4 flex items-center justify-center">
+            <ScoreGauge value={86} />
+          </div>
+          <div className="mt-4 space-y-2">
+            <MetricRow label="Backlinks" value="14.2K" change="+12.5%" />
+            <MetricRow label="Organic Traffic" value="34.7K" change="+9.3%" />
+          </div>
+          <div className="mt-3 space-y-1.5">
+            <StatusDot label="On-Page SEO" status="Good" />
+            <StatusDot label="Mobile Friendly" status="Good" />
+            <StatusDot label="SSL Certificate" status="Valid" />
           </div>
         </div>
-      </motion.div>
-
-      {/* Copy */}
-      <motion.div
-        initial={{ opacity: 0, x: 40 }}
-        animate={inView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0.1 }}
-        className="md:col-span-6"
-      >
-        <p className="label-kicker text-ember">SEO Suite</p>
-        <h2 className="mt-3 h-heading-lg text-[28px] text-midnight sm:text-[34px] md:text-[40px]">
-          Rank higher.
-          <br />
-          Fix issues faster.
-        </h2>
-        <p className="mt-4 max-w-md text-[16px] leading-relaxed tracking-[-0.16px] text-graphite">
-          A beautifully instrumented SEO suite. Scan any URL, see what&rsquo;s
-          broken, and get surgical fixes you can ship in an afternoon.
-        </p>
-        <ul className="mt-8 space-y-3.5">
-          {[
-            'Live SEO score with issue-by-issue breakdown',
-            'Core Web Vitals, metadata, and OG preview in one view',
-            'Keyword density, n-grams, and topical coverage',
-            'Backlink health and spam-score monitoring',
-          ].map((item) => (
-            <li key={item} className="flex items-start gap-3">
-              <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-tags bg-ember/10">
-                <Check size={12} strokeWidth={2.2} className="text-ember" />
-              </span>
-              <span className="text-[15px] leading-relaxed tracking-[-0.2px] text-graphite">
-                {item}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </motion.div>
+      </div>
     </div>
   );
 }
 
-function ScoreRing({ inView, value }: { inView: boolean; value: number }) {
-  const score = useCountUp({ to: value, start: inView, duration: 1600 });
-  const r = 64;
-  const C = 2 * Math.PI * r;
-  const offset = C - (score / 100) * C;
-
+function ScoreGauge({ value }: { value: number }) {
+  const r = 40;
+  const c = 2 * Math.PI * r;
+  const offset = c - (value / 100) * c;
   return (
     <div className="relative">
-      <svg width="160" height="160" viewBox="0 0 160 160">
-        <circle cx="80" cy="80" r={r} fill="none" stroke="#f2f0ed" strokeWidth="10" />
+      <svg width="100" height="100" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r={r} fill="none" stroke="#E5E7EB" strokeWidth="8" />
         <circle
-          cx="80" cy="80" r={r} fill="none"
-          stroke="url(#scoreGrad)"
-          strokeWidth="10" strokeLinecap="round"
-          strokeDasharray={C} strokeDashoffset={offset}
-          transform="rotate(-90 80 80)"
-          style={{ transition: 'stroke-dashoffset 1.6s cubic-bezier(0.19,1,0.22,1)' }}
+          cx="50" cy="50" r={r} fill="none"
+          stroke="#10B981" strokeWidth="8" strokeLinecap="round"
+          strokeDasharray={c} strokeDashoffset={offset}
+          transform="rotate(-90 50 50)"
+          style={{ transition: 'stroke-dashoffset 1.5s ease-out' }}
         />
-        <defs>
-          <linearGradient id="scoreGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#ff3e00" />
-            <stop offset="100%" stopColor="#d48f00" />
-          </linearGradient>
-        </defs>
       </svg>
       <div className="absolute inset-0 grid place-items-center">
         <div className="text-center">
-          <p className="text-[40px] font-semibold leading-none tracking-tight text-midnight">
-            {score}
-          </p>
-          <p className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-ash">
-            /100
-          </p>
+          <p className="text-[24px] font-bold text-dark">{value}</p>
+          <p className="text-[10px] text-green font-medium">Excellent</p>
         </div>
       </div>
     </div>
   );
 }
 
-function MetricBar({ label, value, inView, delay }: { label: string; value: number; inView: boolean; delay: number }) {
-  const pct = useCountUp({ to: value, start: inView, duration: 1200 });
+function MetricRow({ label, value, change }: { label: string; value: string; change: string }) {
   return (
-    <div>
-      <div className="flex items-center justify-between text-[12.5px]">
-        <span className="font-medium text-graphite">{label}</span>
-        <span className="text-ash tabular-nums">{pct}</span>
-      </div>
-      <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-stone-surface">
-        <motion.div
-          initial={{ width: 0 }}
-          animate={inView ? { width: `${value}%` } : {}}
-          transition={{ duration: 1.1, ease: [0.19, 1, 0.22, 1], delay }}
-          className="h-full rounded-full bg-gradient-to-r from-ember/80 to-ember"
-        />
+    <div className="flex items-center justify-between rounded-lg bg-white px-3 py-2">
+      <span className="text-[12px] text-muted">{label}</span>
+      <div className="flex items-center gap-2">
+        <span className="text-[13px] font-semibold text-dark">{value}</span>
+        <span className="text-[11px] font-medium text-green">▲{change}</span>
       </div>
     </div>
   );
 }
 
-/* ─────────────────────────────────────────────────── */
-/* BLOCK 2 — Image Tools                             */
-/* ─────────────────────────────────────────────────── */
-
-function ImageBlock() {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const inView = useInView(ref, { once: true, amount: 0.35 });
-
+function StatusDot({ label, status }: { label: string; status: string }) {
   return (
-    <div
-      id="image-tools"
-      ref={ref}
-      className="grid grid-cols-1 items-center gap-12 md:grid-cols-12 md:gap-16"
-    >
-      {/* Copy */}
-      <motion.div
-        initial={{ opacity: 0, x: -40 }}
-        animate={inView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
-        className="order-2 md:order-1 md:col-span-6"
-      >
-        <p className="label-kicker text-ember">Image Tools</p>
-        <h2 className="mt-3 h-heading-lg text-[28px] text-midnight sm:text-[34px] md:text-[40px]">
-          Compress.
-          <br />
-          Convert. Create.
-        </h2>
-        <p className="mt-4 max-w-md text-[16px] leading-relaxed tracking-[-0.16px] text-graphite">
-          Pixel-precise image utilities that run entirely in the browser. Files
-          never leave your device — and the output looks indistinguishable from
-          the source.
-        </p>
-        <ul className="mt-8 space-y-3.5">
-          {[
-            'Smart compression with perceptual-quality control',
-            'Convert between PNG, JPG, WebP, and AVIF losslessly',
-            'Batch-resize with aspect ratio lock and EXIF preservation',
-            'One-click backgrounds — transparent, blurred, or branded',
-          ].map((item) => (
-            <li key={item} className="flex items-start gap-3">
-              <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-tags bg-ember/10">
-                <Check size={12} strokeWidth={2.2} className="text-ember" />
-              </span>
-              <span className="text-[15px] leading-relaxed tracking-[-0.2px] text-graphite">
-                {item}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </motion.div>
-
-      {/* Visual — before/after */}
-      <motion.div
-        initial={{ opacity: 0, x: 40 }}
-        animate={inView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0.1 }}
-        className="order-1 md:order-2 md:col-span-6"
-      >
-        <BeforeAfter />
-      </motion.div>
+    <div className="flex items-center gap-2 text-[12px]">
+      <span className="h-2 w-2 rounded-full bg-green" />
+      <span className="text-body">{label}:</span>
+      <span className="font-medium text-green">{status}</span>
     </div>
   );
 }
 
-function BeforeAfter() {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [pos, setPos] = useState(55);
+/* ─── Image Tools Card ─── */
+function ImageCard() {
+  return (
+    <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-card">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        {/* Copy */}
+        <div>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-primary">Image Tools</p>
+          <h3 className="mt-2 text-[22px] font-bold leading-tight text-dark md:text-[26px]">
+            Optimize images like a pro
+          </h3>
+          <p className="mt-2 text-[14px] text-muted">
+            Compress, convert and optimize images for web in seconds.
+          </p>
+          <ul className="mt-4 space-y-2">
+            {['Image Compressor (JPG, PNG, WEBP, AVIF)', 'Format Converter (50+ formats)', 'Resize & Crop Images', 'Bulk Optimization (up to 50 files)'].map((i) => (
+              <li key={i} className="flex items-center gap-2 text-[13px] text-body">
+                <Check size={14} className="text-green" strokeWidth={2.5} /> {i}
+              </li>
+            ))}
+          </ul>
+          <a href="#tools" className="mt-4 inline-flex items-center gap-1 text-[14px] font-semibold text-primary hover:underline">
+            Explore Image Tools <ArrowRight size={14} />
+          </a>
+        </div>
+
+        {/* Before/After slider */}
+        <div className="flex flex-col items-center justify-center">
+          <ComparisonSlider />
+          <div className="mt-3 flex w-full items-center justify-between text-[12px]">
+            <span className="text-muted">Savings: <strong className="text-dark">72%</strong></span>
+            <span className="text-muted">Quality: <strong className="text-green">Excellent</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ComparisonSlider() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [pos, setPos] = useState(50);
   const dragging = useRef(false);
 
-  const updateFromClientX = (clientX: number) => {
+  const update = (clientX: number) => {
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
-    const next = ((clientX - rect.left) / rect.width) * 100;
-    setPos(Math.max(4, Math.min(96, next)));
+    setPos(Math.max(5, Math.min(95, ((clientX - rect.left) / rect.width) * 100)));
   };
 
   const onDown = (e: ReactPointerEvent) => {
     dragging.current = true;
     (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
-    updateFromClientX(e.clientX);
+    update(e.clientX);
   };
-  const onMove = (e: ReactPointerEvent) => {
-    if (!dragging.current) return;
-    updateFromClientX(e.clientX);
-  };
+  const onMove = (e: ReactPointerEvent) => { if (dragging.current) update(e.clientX); };
   const onUp = () => { dragging.current = false; };
 
   useEffect(() => {
@@ -264,65 +184,35 @@ function BeforeAfter() {
       onPointerDown={onDown}
       onPointerMove={onMove}
       onPointerUp={onUp}
-      className="relative aspect-[4/3] w-full select-none overflow-hidden rounded-cards-lg border border-stone-surface bg-white shadow-sm"
+      className="relative aspect-[4/3] w-full cursor-ew-resize select-none overflow-hidden rounded-xl border border-gray-200"
     >
-      {/* Before — neutral gradient */}
-      <div
-        aria-hidden
-        className="absolute inset-0"
-        style={{ background: 'linear-gradient(135deg, #EAE8E4 0%, #D4D1CC 50%, #BBB8B2 100%)' }}
-      />
-      <span className="absolute left-4 top-4 rounded-pill border border-white/60 bg-white/80 px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-widest text-ash backdrop-blur">
-        Before
-      </span>
+      {/* Before (gray) */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-200 via-gray-300 to-gray-400" />
+      <span className="absolute left-3 top-3 rounded-full bg-white/80 px-2 py-0.5 text-[10px] font-semibold text-muted backdrop-blur">Original</span>
 
-      {/* After — warm gradient */}
+      {/* After (vibrant) */}
       <div
-        aria-hidden
-        className="absolute inset-0"
-        style={{
-          clipPath: `inset(0 ${100 - pos}% 0 0)`,
-          background: 'linear-gradient(135deg, #FFF4E6 0%, #FFD9B8 40%, #FF7A3D 100%)',
-        }}
+        className="absolute inset-0 bg-gradient-to-br from-orange-100 via-orange-200 to-primary/60"
+        style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
       />
       <span
-        className="absolute left-4 top-4 rounded-pill border border-ember/30 bg-ember/10 px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-widest text-ember backdrop-blur"
+        className="absolute left-3 top-3 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold text-primary backdrop-blur"
         style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
-      >
-        After
-      </span>
-
-      {/* Abstract content blocks */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 grid place-items-center">
-        <div className="grid grid-cols-3 gap-5 opacity-60">
-          {Array.from({ length: 9 }).map((_, i) => (
-            <span key={i} className="h-12 w-12 rounded-cards border border-white/40 bg-white/20 backdrop-blur-sm" />
-          ))}
-        </div>
-      </div>
+      >Compressed</span>
 
       {/* Divider */}
-      <div className="pointer-events-none absolute inset-y-0 w-px bg-white/80" style={{ left: `${pos}%` }} />
-
-      {/* Drag handle */}
+      <div className="absolute inset-y-0 w-px bg-white" style={{ left: `${pos}%` }} />
       <button
         type="button"
-        aria-label="Drag to compare"
-        onPointerDown={onDown}
-        className="absolute top-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize place-items-center rounded-full bg-midnight text-white shadow-lg ring-4 ring-white/60"
+        aria-label="Drag"
+        className="absolute top-1/2 grid h-8 w-8 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white text-dark shadow-lg"
         style={{ left: `${pos}%` }}
       >
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
           <path d="M6 3L3 8l3 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           <path d="M10 3l3 5-3 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
-
-      {/* Bottom caption */}
-      <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-black/30 to-transparent p-4 text-[11.5px] font-medium text-white">
-        <span>Drag to compare</span>
-        <span className="tabular-nums opacity-80">{Math.round(pos)}%</span>
-      </div>
     </div>
   );
 }
