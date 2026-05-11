@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { getAllBlogPosts } from '@/lib/blog-data';
 import ArticleCard from '@/components/blog/ArticleCard';
-import Nav from '@/components/layout/Nav';
-import Footer from '@/components/layout/Footer';
+import { Nav } from '@/components/layout/Nav';
+import { Footer } from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
   title: 'Blog — Free Tools Tips & Guides | ToolStack',

@@ -8,8 +8,8 @@ import {
 } from '@/lib/blog-data';
 import ArticleLayout from '@/components/blog/ArticleLayout';
 import ArticleCard from '@/components/blog/ArticleCard';
-import Nav from '@/components/layout/Nav';
-import Footer from '@/components/layout/Footer';
+import { Nav } from '@/components/layout/Nav';
+import { Footer } from '@/components/layout/Footer';
 
 import CompressImagesArticle from './articles/CompressImagesArticle';
 import BestSeoToolsArticle from './articles/BestSeoToolsArticle';

@@ -106,7 +106,7 @@ export default function ArticleLayout({ post, children }: ArticleLayoutProps) {
                 Free tips on productivity, SEO, and web development delivered
                 every Thursday.
               </p>
-              <form className="space-y-2" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-2" action="#">
                 <input
                   type="email"
                   placeholder="you@example.com"
