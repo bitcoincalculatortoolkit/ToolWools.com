@@ -1,12 +1,19 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Fraunces } from 'next/font/google';
 import './globals.css';
 
 const inter = Inter({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['400', '500', '600'],
   display: 'swap',
   variable: '--font-inter',
+});
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  weight: ['500'],
+  display: 'swap',
+  variable: '--font-display',
 });
 
 export const metadata: Metadata = {
@@ -16,7 +23,7 @@ export const metadata: Metadata = {
     template: '%s | ToolWools',
   },
   description:
-    'A luxury-minimal suite of 100+ free online tools — SEO, image, PDF, text, and developer utilities. No signup. Instant. Beautifully crafted.',
+    '100+ free online tools — SEO, image, PDF, text, and developer utilities. No signup. Instant. Beautifully crafted.',
   openGraph: {
     title: 'ToolWools — Every tool your workflow will ever need.',
     description:
@@ -38,8 +45,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="font-sans bg-cream text-ink antialiased">
+    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+      <body className="font-sans bg-canvas text-graphite antialiased">
         {children}
       </body>
     </html>
