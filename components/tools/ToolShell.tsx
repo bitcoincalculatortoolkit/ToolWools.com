@@ -6,6 +6,7 @@ import { AdPlaceholder } from './AdPlaceholder';
 import { FAQAccordion } from './FAQAccordion';
 import { RelatedTools } from './RelatedTools';
 import { InternalLinks } from './InternalLinks';
+import { AffiliateSection } from './AffiliateSection';
 import type { ToolData } from '@/lib/tools-data';
 
 interface ToolShellProps {
@@ -54,6 +55,9 @@ export function ToolShell({ tool, relatedTools, children }: ToolShellProps) {
         {/* Tool content area */}
         <div className="min-w-0">
           {children}
+
+          {/* Affiliate recommendations */}
+          <AffiliateSection category={tool.category} />
 
           {/* FAQ section */}
           <FAQAccordion items={tool.faqs} />

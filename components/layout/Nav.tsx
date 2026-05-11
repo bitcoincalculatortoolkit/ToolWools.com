@@ -20,8 +20,7 @@ const NAV_LINKS = [
   { label: 'Image Tools', href: '#tools' },
   { label: 'PDF Tools', href: '#tools' },
   { label: 'AI Tools', href: '#tools' },
-  { label: 'Pricing', href: '#cta' },
-  { label: 'Blog', href: '#' },
+  { label: 'Blog', href: '/blog' },
 ];
 
 const MEGA_MENU_ITEMS = [
