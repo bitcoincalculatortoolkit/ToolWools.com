@@ -497,3 +497,61 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+
+
+/* ═══════════════════════════════════════════════
+   TOOL-PAGE SEO CONTENT PROSE
+   ═══════════════════════════════════════════════ */
+.seo-prose {
+  color: var(--color-body);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.seo-prose h2 {
+  scroll-margin-top: 100px;
+}
+
+.seo-prose h3 {
+  scroll-margin-top: 100px;
+}
+
+.seo-prose a:not(.not-prose a) {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.seo-prose a:not(.not-prose a):hover {
+  text-decoration: underline;
+}
+
+.seo-prose ul:not(.not-prose ul),
+.seo-prose ol:not(.not-prose ol) {
+  padding-left: 1.25rem;
+  margin: 1rem 0;
+}
+
+.seo-prose ul:not(.not-prose ul) {
+  list-style: disc;
+}
+
+.seo-prose ol:not(.not-prose ol) {
+  list-style: decimal;
+}
+
+.seo-prose li {
+  margin-bottom: 0.5rem;
+}
+
+.not-prose ul,
+.not-prose ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.not-prose li {
+  margin: 0;
+}
