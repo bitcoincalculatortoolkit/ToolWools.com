@@ -25,6 +25,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `https://toolstack.io/tools/${tool.category}/${tool.slug}`,
       siteName: 'ToolStack',
       type: 'website',
+      images: [{
+        url: `/api/og?title=${encodeURIComponent(tool.name)}&description=${encodeURIComponent(tool.description)}&category=${encodeURIComponent(tool.categoryLabel)}`,
+        width: 1200,
+        height: 630,
+      }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: tool.seoTitle,
+      description: tool.seoDescription,
+      images: [`/api/og?title=${encodeURIComponent(tool.name)}&description=${encodeURIComponent(tool.description)}&category=${encodeURIComponent(tool.categoryLabel)}`],
     },
     alternates: {
       canonical: `https://toolstack.io/tools/${tool.category}/${tool.slug}`,

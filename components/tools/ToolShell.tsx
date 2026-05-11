@@ -5,6 +5,7 @@ import { Breadcrumb } from './Breadcrumb';
 import { AdPlaceholder } from './AdPlaceholder';
 import { FAQAccordion } from './FAQAccordion';
 import { RelatedTools } from './RelatedTools';
+import { InternalLinks } from './InternalLinks';
 import type { ToolData } from '@/lib/tools-data';
 
 interface ToolShellProps {
@@ -59,6 +60,9 @@ export function ToolShell({ tool, relatedTools, children }: ToolShellProps) {
 
           {/* Related tools */}
           <RelatedTools tools={relatedTools} />
+
+          {/* Internal links for SEO */}
+          <InternalLinks />
         </div>
 
         {/* Sidebar - desktop only */}
