@@ -10,19 +10,19 @@ const CATEGORIES = [
 ];
 
 const TOOLS = [
-  { icon: Image, bg: 'bg-primary-bg', color: 'text-primary', name: 'Image Compressor', desc: 'Compress images without losing quality', slug: 'image-compressor' },
-  { icon: Tag, bg: 'bg-blue-bg', color: 'text-blue', name: 'Meta Tag Generator', desc: 'Generate SEO meta tags instantly', slug: 'meta-tag-generator' },
-  { icon: Type, bg: 'bg-green-bg', color: 'text-green', name: 'Word Counter', desc: 'Count words and characters in your text', slug: 'word-counter' },
-  { icon: FileText, bg: 'bg-primary-bg', color: 'text-primary', name: 'PDF Compressor', desc: 'Reduce PDF file size without losing quality', slug: 'pdf-compressor' },
-  { icon: Globe, bg: 'bg-blue-bg', color: 'text-blue', name: 'Domain Authority Checker', desc: 'Check domain authority and SEO score', slug: 'domain-authority' },
-  { icon: Code2, bg: 'bg-green-bg', color: 'text-green', name: 'JSON Formatter', desc: 'Format and validate JSON data easily', slug: 'json-formatter' },
+  { icon: Image, bg: 'bg-primary-bg', color: 'text-primary', gradientFrom: 'from-primary/5', name: 'Image Compressor', desc: 'Compress images without losing quality', slug: 'image-compressor' },
+  { icon: Tag, bg: 'bg-blue-bg', color: 'text-blue', gradientFrom: 'from-blue/5', name: 'Meta Tag Generator', desc: 'Generate SEO meta tags instantly', slug: 'meta-tag-generator' },
+  { icon: Type, bg: 'bg-green-bg', color: 'text-green', gradientFrom: 'from-green/5', name: 'Word Counter', desc: 'Count words and characters in your text', slug: 'word-counter' },
+  { icon: FileText, bg: 'bg-primary-bg', color: 'text-primary', gradientFrom: 'from-primary/5', name: 'PDF Compressor', desc: 'Reduce PDF file size without losing quality', slug: 'pdf-compressor' },
+  { icon: Globe, bg: 'bg-blue-bg', color: 'text-blue', gradientFrom: 'from-blue/5', name: 'Domain Authority Checker', desc: 'Check domain authority and SEO score', slug: 'domain-authority' },
+  { icon: Code2, bg: 'bg-green-bg', color: 'text-green', gradientFrom: 'from-green/5', name: 'JSON Formatter', desc: 'Format and validate JSON data easily', slug: 'json-formatter' },
 ];
 
 export function ToolsGrid() {
   const [activeTab, setActiveTab] = useState('All Tools');
 
   return (
-    <section id="tools" className="py-16">
+    <section id="tools" className="py-16 md:py-20">
       <div className="mx-auto max-w-page px-4 md:px-6">
         {/* Tabs */}
         <div className="no-scrollbar mb-10 flex items-center gap-2 overflow-x-auto pb-2">
@@ -31,10 +31,10 @@ export function ToolsGrid() {
               key={cat}
               type="button"
               onClick={() => setActiveTab(cat)}
-              className={`shrink-0 rounded-full px-4 py-2 text-[14px] font-medium transition-colors ${
+              className={`relative shrink-0 rounded-full px-5 py-2.5 text-[14px] font-medium transition-all duration-300 ${
                 activeTab === cat
-                  ? 'bg-dark text-white'
-                  : 'bg-gray-100 text-body hover:bg-gray-200'
+                  ? 'bg-dark text-white shadow-md'
+                  : 'bg-white text-body border border-border/40 hover:border-border hover:bg-gray-50'
               }`}
             >
               {cat}
@@ -43,20 +43,32 @@ export function ToolsGrid() {
         </div>
 
         {/* Header */}
-        <div className="mb-8 flex items-end justify-between">
+        <div className="mb-10 flex items-end justify-between">
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-primary">
+            <motion.p
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="text-[11px] font-semibold uppercase tracking-[0.08em] text-primary"
+            >
               Popular tools
-            </p>
-            <h2 className="mt-1 font-body text-[32px] font-bold text-dark">
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.05 }}
+              className="mt-2 font-display text-[34px] font-bold text-dark tracking-[-0.02em]"
+            >
               Powerful tools for every need
-            </h2>
+            </motion.h2>
           </div>
           <a
             href="#"
-            className="hidden items-center gap-1 text-[14px] font-medium text-primary hover:underline md:inline-flex"
+            className="hidden items-center gap-1.5 text-[14px] font-semibold text-gradient-primary hover:opacity-80 transition-opacity md:inline-flex"
           >
-            View all tools <ArrowRight size={14} />
+            View all tools <ArrowRight size={14} className="text-primary" />
           </a>
         </div>
 
@@ -66,18 +78,30 @@ export function ToolsGrid() {
             <motion.a
               key={tool.slug}
               href={`/tools/${tool.slug}`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="group rounded-xl border border-gray-100 bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-hover"
+              initial={{ opacity: 0, x: -20, scale: 0.95 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+              className="group relative rounded-2xl border border-gray-100/80 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-premium hover:border-transparent overflow-hidden"
             >
-              <span className={`grid h-12 w-12 place-items-center rounded-xl ${tool.bg}`}>
+              {/* Hover gradient border effect */}
+              <div className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(244,81,30,0.08) 0%, rgba(37,99,235,0.06) 100%)',
+                }}
+              />
+              {/* Animated border on hover */}
+              <div className="absolute inset-px rounded-[15px] bg-white z-0 pointer-events-none" />
+
+              {/* Icon with radial gradient bg */}
+              <span className={`relative z-10 grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br ${tool.gradientFrom} to-transparent ${tool.bg}`}>
                 <tool.icon size={24} className={tool.color} strokeWidth={1.5} />
               </span>
-              <h3 className="mt-3 text-[15px] font-semibold text-dark">{tool.name}</h3>
-              <p className="mt-1 line-clamp-2 text-[13px] text-muted">{tool.desc}</p>
-              <span className="mt-4 inline-flex items-center gap-1 text-[13px] font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">
+              <h3 className="relative z-10 mt-3.5 text-[15px] font-semibold text-dark leading-tight">{tool.name}</h3>
+              <p className="relative z-10 mt-1.5 line-clamp-2 text-[13px] text-muted leading-relaxed">{tool.desc}</p>
+
+              {/* Arrow that slides in from right */}
+              <span className="relative z-10 mt-4 inline-flex items-center gap-1 text-[13px] font-semibold text-primary opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
                 Try Now <ArrowRight size={12} />
               </span>
             </motion.a>
