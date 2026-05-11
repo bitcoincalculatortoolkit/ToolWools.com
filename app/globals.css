@@ -498,6 +498,75 @@ body {
   overflow: hidden;
 }
 
+/* ═══════════════════════════════════════════════
+   SEO LONG-FORM PROSE STYLING (tool content blocks)
+   ═══════════════════════════════════════════════ */
+
+.seo-prose {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--color-body);
+}
+
+.seo-prose h2 {
+  scroll-margin-top: 100px;
+}
+
+.seo-prose h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+
+.seo-prose p {
+  margin-bottom: 1rem;
+}
+
+.seo-prose p + p {
+  margin-top: 0.75rem;
+}
+
+.seo-prose a {
+  color: var(--color-primary);
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.seo-prose a:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+.seo-prose strong {
+  color: var(--color-dark);
+  font-weight: 600;
+}
+
+.seo-prose em {
+  font-style: italic;
+  color: var(--color-dark);
+}
+
+.seo-prose code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.875em;
+  color: var(--color-dark);
+}
+
+.seo-prose ol,
+.seo-prose ul {
+  margin-bottom: 1rem;
+}
+
+.seo-prose table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
 
 
 /* ═══════════════════════════════════════════════

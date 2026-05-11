@@ -3,10 +3,8 @@
 import dynamic from 'next/dynamic';
 import { ToolShell } from './ToolShell';
 import { ComingSoon } from './ComingSoon';
-import { WordCounterContent } from './content/WordCounterContent';
 import type { ToolData } from '@/lib/tools-data';
 
-/* ─────────── Dynamically-loaded tool components ─────────── */
 const ImageCompressor = dynamic(() =>
   import('./ImageCompressor').then((mod) => mod.ImageCompressor),
 );
@@ -26,6 +24,15 @@ const DomainAuthorityChecker = dynamic(() =>
   import('./DomainAuthorityChecker').then((mod) => mod.DomainAuthorityChecker),
 );
 
+/* ──────────────────────────────────────────────────────────
+   Long-form SEO content blocks — one per tool.
+   Written to rank for primary keywords + answer user intent
+   for featured snippets & AI search (Perplexity, ChatGPT, Google AI).
+   ────────────────────────────────────────────────────────── */
+const WordCounterContent = dynamic(() =>
+  import('./content/WordCounterContent').then((mod) => mod.WordCounterContent),
+);
+
 const toolComponents: Record<string, React.ComponentType> = {
   'image-compressor': ImageCompressor,
   'word-counter': WordCounter,
@@ -35,10 +42,8 @@ const toolComponents: Record<string, React.ComponentType> = {
   'domain-authority-checker': DomainAuthorityChecker,
 };
 
-/* ─────────── Per-tool long-form SEO content blocks ─────────── */
 const toolSeoContent: Record<string, React.ComponentType> = {
   'word-counter': WordCounterContent,
-  // Other tools will get their own rich content blocks in subsequent tasks.
 };
 
 interface ToolPageClientProps {
@@ -54,7 +59,7 @@ export function ToolPageClient({ tool, relatedTools }: ToolPageClientProps) {
     <ToolShell
       tool={tool}
       relatedTools={relatedTools}
-      seoContent={SeoContent ? <SeoContent /> : undefined}
+      seoContent={SeoContent ? <SeoContent /> : null}
     >
       {ToolComponent ? <ToolComponent /> : <ComingSoon toolName={tool.name} />}
     </ToolShell>

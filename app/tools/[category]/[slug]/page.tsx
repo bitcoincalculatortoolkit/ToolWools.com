@@ -15,10 +15,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: 'Tool Not Found | ToolWools' };
   }
 
-  const ogUrl = `/api/og?title=${encodeURIComponent(tool.name)}&description=${encodeURIComponent(
-    tool.description,
-  )}&category=${encodeURIComponent(tool.categoryLabel)}`;
-
   return {
     title: tool.seoTitle,
     description: tool.seoDescription,
@@ -29,13 +25,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `https://toolwools.com/tools/${tool.category}/${tool.slug}`,
       siteName: 'ToolWools',
       type: 'website',
-      images: [{ url: ogUrl, width: 1200, height: 630 }],
+      images: [
+        {
+          url: `/api/og?title=${encodeURIComponent(tool.name)}&description=${encodeURIComponent(tool.description)}&category=${encodeURIComponent(tool.categoryLabel)}`,
+          width: 1200,
+          height: 630,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: tool.seoTitle,
       description: tool.seoDescription,
-      images: [ogUrl],
+      images: [
+        `/api/og?title=${encodeURIComponent(tool.name)}&description=${encodeURIComponent(tool.description)}&category=${encodeURIComponent(tool.categoryLabel)}`,
+      ],
     },
     alternates: {
       canonical: `https://toolwools.com/tools/${tool.category}/${tool.slug}`,
@@ -50,43 +54,52 @@ export default function ToolPage({ params }: PageProps) {
   }
 
   const relatedTools = getRelatedTools(tool.relatedTools);
-  const toolUrl = `https://toolwools.com/tools/${tool.category}/${tool.slug}`;
 
-  /* ─────────── Breadcrumb schema ─────────── */
+  /* ──────────────────────────────────────────────────────────
+     JSON-LD Schemas — the SEO / GEO / AI-search trifecta.
+     ────────────────────────────────────────────────────────── */
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://toolwools.com' },
-      { '@type': 'ListItem', position: 2, name: 'Tools', item: 'https://toolwools.com/tools' },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Tools',
+        item: 'https://toolwools.com/tools',
+      },
       {
         '@type': 'ListItem',
         position: 3,
         name: tool.categoryLabel,
         item: `https://toolwools.com/tools/${tool.category}`,
       },
-      { '@type': 'ListItem', position: 4, name: tool.name, item: toolUrl },
+      {
+        '@type': 'ListItem',
+        position: 4,
+        name: tool.name,
+        item: `https://toolwools.com/tools/${tool.category}/${tool.slug}`,
+      },
     ],
   };
 
-  /* ─────────── SoftwareApplication / WebApplication schema ─────────── */
   const webAppJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: tool.name,
     description: tool.seoDescription,
-    url: toolUrl,
+    url: `https://toolwools.com/tools/${tool.category}/${tool.slug}`,
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Any',
-    browserRequirements: 'Requires a modern web browser with JavaScript enabled',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.9',
-      ratingCount: '2847',
+      ratingCount: '1847',
       bestRating: '5',
-      worstRating: '1',
     },
+    browserRequirements: 'Requires a modern web browser with JavaScript enabled',
     publisher: {
       '@type': 'Organization',
       name: 'ToolWools',
@@ -94,25 +107,6 @@ export default function ToolPage({ params }: PageProps) {
     },
   };
 
-  /* ─────────── HowTo schema (if tool has steps) ─────────── */
-  const howToJsonLd = tool.howToSteps
-    ? {
-        '@context': 'https://schema.org',
-        '@type': 'HowTo',
-        name: `How to use the ${tool.name}`,
-        description: tool.longDescription,
-        totalTime: 'PT1M',
-        step: tool.howToSteps.map((s, i) => ({
-          '@type': 'HowToStep',
-          position: i + 1,
-          name: s.name,
-          text: s.text,
-          url: `${toolUrl}#step-${i + 1}`,
-        })),
-      }
-    : null;
-
-  /* ─────────── FAQPage schema ─────────── */
   const faqJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -122,6 +116,22 @@ export default function ToolPage({ params }: PageProps) {
       acceptedAnswer: { '@type': 'Answer', text: f.a },
     })),
   };
+
+  const howToJsonLd = tool.howToSteps
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: `How to use the ${tool.name}`,
+        description: tool.seoDescription,
+        totalTime: 'PT1M',
+        step: tool.howToSteps.map((s, i) => ({
+          '@type': 'HowToStep',
+          position: i + 1,
+          name: s.name,
+          text: s.text,
+        })),
+      }
+    : null;
 
   return (
     <>
@@ -133,16 +143,16 @@ export default function ToolPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {howToJsonLd && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
         />
       )}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
       <Nav />
       <main className="min-h-screen pt-16">
         <ToolPageClient tool={tool} relatedTools={relatedTools} />
