@@ -11,48 +11,45 @@ export function CTASection() {
     offset: ['start end', 'end start'],
   });
 
-  // Parallax blobs drift as the section scrolls
   const blob1Y = useTransform(scrollYProgress, [0, 1], [40, -40]);
   const blob2Y = useTransform(scrollYProgress, [0, 1], [-30, 60]);
 
   return (
     <section id="cta" ref={ref} className="relative">
-      <div className="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+      <div className="mx-auto max-w-page px-5 pb-24 md:px-8 md:pb-32">
         <motion.div
           initial={{ opacity: 0, scale: 0.97 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.9, ease: [0.2, 0.8, 0.2, 1] }}
-          className="relative isolate overflow-hidden rounded-[36px] bg-ink px-6 py-20 text-center md:px-16 md:py-28"
+          transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
+          className="relative isolate overflow-hidden rounded-cards-lg bg-midnight px-6 py-20 text-center md:px-16 md:py-28"
         >
           {/* Grid texture */}
           <span aria-hidden className="pointer-events-none absolute inset-0 grain" />
 
-          {/* Gold orbit blob */}
+          {/* Ember blob */}
           <motion.span
             aria-hidden
             style={{ y: blob1Y }}
-            className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-gold/20 blur-3xl"
+            className="pointer-events-none absolute -left-20 top-10 h-64 w-64 rounded-full bg-ember/20 blur-[100px]"
           />
           <motion.span
             aria-hidden
             style={{ y: blob2Y }}
-            className="pointer-events-none absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-gold/10 blur-3xl"
+            className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-sky/10 blur-[80px]"
           />
 
           {/* Kicker */}
-          <p className="relative label-kicker text-gold-light">
-            Start for free
-          </p>
+          <p className="relative label-kicker text-ember">Start for free</p>
 
           {/* Headline */}
-          <h2 className="relative mx-auto mt-5 max-w-3xl h-display text-[36px] leading-[1.04] text-white sm:text-[44px] md:text-[56px]">
+          <h2 className="relative mx-auto mt-5 max-w-3xl font-display text-[34px] font-medium leading-[1.09] tracking-[-1.14px] text-white sm:text-[44px] md:text-[56px] md:tracking-[-2.11px]">
             Your tools.
             <br />
             Your workflow.
           </h2>
 
-          <p className="relative mx-auto mt-6 max-w-xl text-[16px] leading-relaxed text-white/60">
+          <p className="relative mx-auto mt-6 max-w-xl text-[16px] leading-relaxed text-white/55">
             One hundred meticulously designed utilities, all free, all instant.
             No signup. No waiting. Your browser is the only runtime.
           </p>
@@ -61,9 +58,9 @@ export function CTASection() {
           <div className="relative mt-10 flex flex-wrap items-center justify-center gap-3">
             <a
               href="#tools"
-              className="group inline-flex items-center gap-1.5 rounded-[12px] bg-gold px-5 py-3.5 text-[14px] font-medium text-white transition-all duration-300 ease-lux hover:scale-[1.03] hover:bg-gold-light"
+              className="group inline-flex items-center gap-2 rounded-pill bg-ember px-6 py-3.5 text-[15px] font-medium text-white transition-all duration-200 hover:bg-ember/90 hover:shadow-lg"
             >
-              Explore all tools
+              Explore All Tools
               <ArrowRight
                 size={15}
                 strokeWidth={2}
@@ -72,14 +69,14 @@ export function CTASection() {
             </a>
             <a
               href="#seo-suite"
-              className="inline-flex items-center gap-1.5 rounded-[12px] border border-white/20 px-5 py-3.5 text-[14px] font-medium text-white transition-colors duration-300 ease-lux hover:border-white/50 hover:bg-white/5"
+              className="inline-flex items-center gap-1.5 rounded-pill border border-white/15 px-5 py-3.5 text-[15px] font-medium text-white transition-colors duration-200 hover:border-white/30 hover:bg-white/5"
             >
               Learn more
             </a>
           </div>
 
-          {/* Micro row */}
-          <div className="relative mt-10 flex items-center justify-center gap-6 text-[11.5px] text-white/50">
+          {/* Trust row */}
+          <div className="relative mt-10 flex items-center justify-center gap-6 text-[11.5px] text-white/40">
             <span>No credit card</span>
             <span className="h-1 w-1 rounded-full bg-white/20" />
             <span>No signup</span>

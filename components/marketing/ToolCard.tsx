@@ -17,55 +17,44 @@ export function ToolCard({ tool }: ToolCardProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.96 }}
-      transition={{ duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
-      whileHover={{ y: -3 }}
-      className="group relative flex flex-col overflow-hidden rounded-[20px] border border-line bg-white p-7 shadow-soft transition-[border-color,box-shadow] duration-300 ease-lux hover:border-gold-border hover:shadow-lux"
+      transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
+      className="group relative flex flex-col overflow-hidden rounded-cards bg-white p-8 shadow-subtle card-hover"
     >
-      {/* Gold gradient overlay on hover (top-right tint) */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 ease-lux group-hover:opacity-100"
-        style={{
-          background:
-            'radial-gradient(ellipse at top right, rgba(184,150,46,0.10), transparent 55%)',
-        }}
-      />
-
       {/* Hover arrow top-right */}
       <span
         aria-hidden
-        className="absolute right-5 top-5 grid h-8 w-8 translate-x-1 -translate-y-1 place-items-center rounded-full border border-line bg-white text-ink-3 opacity-0 transition-all duration-300 ease-lux group-hover:translate-x-0 group-hover:translate-y-0 group-hover:border-gold-border group-hover:bg-gold-bg group-hover:text-gold group-hover:opacity-100"
+        className="absolute right-6 top-6 grid h-8 w-8 translate-x-1 -translate-y-1 place-items-center rounded-full bg-parchment text-ash opacity-0 transition-all duration-300 ease-spring group-hover:translate-x-0 group-hover:translate-y-0 group-hover:bg-midnight group-hover:text-white group-hover:opacity-100"
       >
-        <ArrowUpRight size={14} strokeWidth={1.75} />
+        <ArrowUpRight size={13} strokeWidth={2} />
       </span>
 
       {/* Icon */}
-      <span className="grid h-12 w-12 place-items-center rounded-[12px] bg-cream-2 text-ink-2 transition-colors duration-300 ease-lux group-hover:bg-gold-bg group-hover:text-gold">
+      <span className="grid h-12 w-12 place-items-center rounded-icons bg-parchment text-graphite transition-colors duration-300 group-hover:bg-ember/10 group-hover:text-ember">
         <Icon size={20} strokeWidth={1.5} />
       </span>
 
       {/* Body */}
       <div className="mt-5 flex-1">
-        <h3 className="text-[16px] font-semibold tracking-tight text-ink">
+        <h3 className="text-[16px] font-semibold tracking-[-0.16px] text-charcoal">
           {tool.name}
         </h3>
-        <p className="mt-1.5 text-[13.5px] leading-[1.55] text-ink-3">
+        <p className="mt-1.5 text-[14px] leading-[1.55] tracking-[-0.14px] text-graphite">
           {tool.description}
         </p>
       </div>
 
-      {/* Footer — category + badges */}
-      <div className="mt-5 flex items-center gap-2">
-        <span className="rounded-pill border border-gold-border bg-gold-bg px-2.5 py-0.5 text-[10.5px] font-semibold tracking-wide text-gold">
+      {/* Footer — category badge */}
+      <div className="mt-6 flex items-center gap-2">
+        <span className="rounded-tags border border-stone-surface bg-parchment px-2.5 py-0.5 text-[11px] font-medium tracking-wide text-ash">
           {tool.categoryLabel}
         </span>
         {tool.isNew && (
-          <span className="rounded-pill border border-line bg-cream-2 px-2.5 py-0.5 text-[10.5px] font-semibold tracking-wide text-ink-2">
+          <span className="rounded-tags border border-ember/20 bg-ember/5 px-2.5 py-0.5 text-[11px] font-semibold tracking-wide text-ember">
             NEW
           </span>
         )}
         {tool.popular && !tool.isNew && (
-          <span className="rounded-pill border border-line bg-white px-2.5 py-0.5 text-[10.5px] font-medium tracking-wide text-ink-3">
+          <span className="rounded-tags border border-stone-surface bg-white px-2.5 py-0.5 text-[11px] font-medium tracking-wide text-ash">
             Popular
           </span>
         )}

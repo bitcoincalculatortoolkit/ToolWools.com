@@ -9,17 +9,11 @@ interface Stat {
   value: number;
   suffix?: string;
   decimals?: number;
-  format?: (n: number) => string;
 }
 
 const STATS: Stat[] = [
   { label: 'Free tools', value: 100, suffix: '+' },
-  {
-    label: 'Monthly users',
-    value: 2.4,
-    decimals: 1,
-    suffix: 'M',
-  },
+  { label: 'Monthly users', value: 2.4, decimals: 1, suffix: 'M' },
   { label: 'Signup time', value: 0, suffix: 'ms' },
   { label: 'Average rating', value: 4.8, decimals: 1, suffix: '★' },
 ];
@@ -30,7 +24,7 @@ export function StatsStrip() {
 
   return (
     <section id="stats" className="relative">
-      <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-page px-5 py-16 md:px-8 md:py-24">
         <div ref={ref} className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-5">
           {STATS.map((s, i) => (
             <motion.div
@@ -38,16 +32,16 @@ export function StatsStrip() {
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{
-                duration: 0.6,
-                ease: [0.2, 0.8, 0.2, 1],
+                duration: 0.7,
+                ease: [0.19, 1, 0.22, 1],
                 delay: i * 0.08,
               }}
-              className="relative overflow-hidden rounded-[20px] border border-line bg-white p-6 shadow-soft"
+              className="relative overflow-hidden rounded-cards bg-white p-6 shadow-subtle"
             >
               <StatContent stat={s} inView={inView} />
               <span
                 aria-hidden
-                className="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full bg-gold/5 blur-2xl"
+                className="pointer-events-none absolute -right-8 -top-8 h-20 w-20 rounded-full bg-ember/[0.04] blur-2xl"
               />
             </motion.div>
           ))}
@@ -66,11 +60,13 @@ function StatContent({ stat, inView }: { stat: Stat; inView: boolean }) {
   });
   return (
     <div>
-      <p className="text-[36px] font-semibold leading-none tracking-tight text-ink tabular-nums">
+      <p className="text-[36px] font-semibold leading-none tracking-tight text-midnight tabular-nums">
         {v}
-        {stat.suffix && <span className="text-gold">{stat.suffix}</span>}
+        {stat.suffix && <span className="text-ember">{stat.suffix}</span>}
       </p>
-      <p className="mt-3 text-[12.5px] font-medium text-ink-3">{stat.label}</p>
+      <p className="mt-3 text-[13px] font-medium tracking-[-0.14px] text-ash">
+        {stat.label}
+      </p>
     </div>
   );
 }

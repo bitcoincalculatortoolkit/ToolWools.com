@@ -3,44 +3,67 @@
 @tailwind utilities;
 
 :root {
-  /* Backgrounds */
-  --cream: #FAF9F6;
-  --cream-2: #F3F1EC;
-  --cream-3: #EAE7E0;
-  --white: #FFFFFF;
+  /* Colors */
+  --color-warm-canvas: #fbfaf9;
+  --color-stone-surface: #f2f0ed;
+  --color-parchment-card: #f8f7f4;
+  --color-graphite: #474645;
+  --color-charcoal-primary: #343433;
+  --color-midnight: #121212;
+  --color-obsidian: #000000;
+  --color-ash: #848281;
+  --color-fog: #c6c6c6;
+  --color-smoke: #a7a7a7;
+  --color-pepper: #282624;
+  --color-ember-orange: #ff3e00;
+  --color-meadow-green: #00ca48;
+  --color-sky-blue: #0090ff;
+  --color-sunburst-yellow: #ffbb26;
+  --color-deep-amber: #d48f00;
+  --color-ocean-blue: #0086fc;
+  --color-ice-blue: #64c6ff;
+  --color-spearmint: #00c978;
+  --color-flamingo: #ff58ae;
+  --color-violet-pop: #9f4fff;
+  --color-coral-red: #ff2b3a;
+  --color-valid-green: #00c454;
 
-  /* Gold Accent System */
-  --gold: #B8962E;
-  --gold-light: #C9A84C;
-  --gold-bg: #F7F0DC;
-  --gold-border: #E8D5A0;
+  /* Typography */
+  --font-display: 'Fraunces', 'Playfair Display', ui-serif, Georgia, serif;
+  --font-inter: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* Text / Ink */
-  --ink: #111110;
-  --ink-2: #3A3A38;
-  --ink-3: #6B6B68;
-  --ink-4: #9A9A97;
+  /* Spacing */
+  --spacing-unit: 4px;
 
-  /* Borders */
-  --border: #E2DDD4;
-  --border-2: #CCC8BE;
+  /* Layout */
+  --page-max-width: 1200px;
 
-  /* Radius */
-  --r-sm: 8px;
-  --r-md: 12px;
-  --r-lg: 16px;
-  --r-xl: 20px;
-  --r-2xl: 28px;
-  --r-pill: 40px;
+  /* Border Radius */
+  --radius-tags: 6px;
+  --radius-cards: 10px;
+  --radius-icons: 40px;
+  --radius-inputs: 10px;
+  --radius-buttons: 32px;
+  --radius-cards-lg: 24px;
+  --radius-pill: 32px;
+  --radius-illustrations: 72px;
 
   /* Shadows */
-  --shadow: 0 1px 3px rgba(0, 0, 0, .06), 0 4px 16px rgba(0, 0, 0, .04);
-  --shadow-lg: 0 8px 40px rgba(0, 0, 0, .08), 0 2px 8px rgba(0, 0, 0, .04);
+  --shadow-subtle: inset 0 0 0 1px rgba(242, 240, 237, 1);
+  --shadow-subtle-3: 0 0 0 1px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 1px 6px rgba(0, 0, 0, 0.04), 0 0 24px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 0 24px rgba(0, 0, 0, 0.15);
+
+  /* Surfaces */
+  --surface-canvas: #fbfaf9;
+  --surface-card: #ffffff;
+  --surface-recessed: #f8f7f4;
+  --surface-stone: #f2f0ed;
+  --surface-dark: #000000;
 
   /* Transitions */
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-out: cubic-bezier(0, 0, 0.2, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-spring: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 * {
@@ -51,9 +74,8 @@
 
 html,
 body {
-  background: var(--cream);
-  color: var(--ink);
-  font-feature-settings: 'ss01', 'cv11';
+  background: var(--color-warm-canvas);
+  color: var(--color-graphite);
 }
 
 html {
@@ -69,30 +91,16 @@ html {
   scrollbar-width: none;
 }
 
-/* Subtle grain texture used in dark CTA */
+/* Grid texture for dark CTA */
 .grain {
   background-image:
     repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 40px),
     repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 40px);
 }
 
-/* Shimmer sweep for skeletons & progress bars */
-.shimmer::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.55),
-    transparent
-  );
-  animation: shimmer 2.2s linear infinite;
-}
-
-/* Focus ring — accessible and on-brand */
+/* Focus ring — accessible */
 :focus-visible {
-  outline: 2px solid var(--gold);
+  outline: 2px solid var(--color-ember-orange);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -111,20 +119,44 @@ html {
 
 /* Selection */
 ::selection {
-  background: var(--gold-bg);
-  color: var(--ink);
+  background: rgba(255, 62, 0, 0.12);
+  color: var(--color-midnight);
 }
 
-/* Typography helpers */
+/* Display heading utility */
 .h-display {
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1.02;
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -2.11px;
+  line-height: 1.09;
 }
 
-.label-kicker {
-  font-size: 11px;
+/* Heading-lg utility */
+.h-heading-lg {
+  font-family: var(--font-inter);
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: -1.14px;
+  line-height: 1.09;
+}
+
+/* Label kicker */
+.label-kicker {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+/* Card inset border — the signature */
+.card-inset {
+  box-shadow: inset 0 0 0 1px rgba(242, 240, 237, 1);
+}
+
+/* Card hover elevation */
+.card-hover {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card-hover:hover {
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04), 0 0 24px rgba(0,0,0,0.05);
+  transform: translateY(-2px);
 }

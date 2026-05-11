@@ -1,178 +1,168 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import {
-  motion,
-  useMotionValue,
-  useScroll,
-  useSpring,
-  useTransform,
-} from 'framer-motion';
-import { ArrowRight, PlayCircle } from 'lucide-react';
-import { CompressorPreview } from './CompressorPreview';
-import { formatCompact, useCountUp } from '@/lib/useCountUp';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { ArrowRight, Sparkles } from 'lucide-react';
+import { useCountUp, formatCompact } from '@/lib/useCountUp';
 
-const HEADLINE_LINES: string[][] = [
-  ['Every', 'tool'],
-  ['your', 'workflow'],
-  ['will', 'ever', 'need.'],
-];
+const HEADLINE_WORDS = ['Every', 'tool', 'your', 'workflow', 'will', 'ever', 'need.'];
 
 export function Hero() {
-  // Parallax — use page scroll so layers keep moving as the user scrolls
   const { scrollY } = useScroll();
-  const orb1Y = useTransform(scrollY, [0, 600], [0, 120]);
-  const orb2Y = useTransform(scrollY, [0, 600], [0, -80]);
-  const gridY = useTransform(scrollY, [0, 600], [0, 60]);
-  const heroOpacity = useTransform(scrollY, [0, 500], [1, 0.6]);
+  const heroOpacity = useTransform(scrollY, [0, 500], [1, 0.4]);
+  const heroScale = useTransform(scrollY, [0, 500], [1, 0.97]);
 
   return (
-    <section className="relative isolate overflow-hidden pt-28 md:pt-36">
-      {/* ───────── Parallax background layers ───────── */}
+    <section className="relative isolate overflow-hidden pt-32 pb-24 md:pt-44 md:pb-36">
+      {/* ───── Parallax background layers ───── */}
+      <BackgroundLayers />
+
+      {/* ───── Content: single centered column ───── */}
       <motion.div
-        aria-hidden
-        style={{ y: gridY }}
-        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.35]"
+        style={{ opacity: heroOpacity, scale: heroScale }}
+        className="relative mx-auto flex max-w-page flex-col items-center px-5 text-center md:px-8"
       >
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              'linear-gradient(to right, rgba(17,17,16,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(17,17,16,0.05) 1px, transparent 1px)',
-            backgroundSize: '48px 48px',
-            maskImage:
-              'radial-gradient(ellipse at 50% 0%, black 40%, transparent 75%)',
-            WebkitMaskImage:
-              'radial-gradient(ellipse at 50% 0%, black 40%, transparent 75%)',
-          }}
-        />
-      </motion.div>
+        {/* Badge */}
+        <motion.span
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
+          className="inline-flex items-center gap-2 rounded-pill border border-stone-surface bg-white px-3.5 py-1.5 text-[13px] font-medium text-ash shadow-subtle"
+        >
+          <Sparkles size={13} strokeWidth={1.5} className="text-ember" />
+          Free Online Tools — No Signup
+        </motion.span>
 
-      <motion.div
-        aria-hidden
-        style={{ y: orb1Y }}
-        className="pointer-events-none absolute -left-32 top-24 -z-10 h-[480px] w-[480px] rounded-full"
-      >
-        <div className="h-full w-full animate-blob rounded-full bg-gold/20 blur-3xl" />
-      </motion.div>
-
-      <motion.div
-        aria-hidden
-        style={{ y: orb2Y }}
-        className="pointer-events-none absolute -right-24 top-48 -z-10 h-[420px] w-[420px] rounded-full"
-      >
-        <div className="h-full w-full animate-blob rounded-full bg-cream-3/60 blur-3xl [animation-delay:4s]" />
-      </motion.div>
-
-      {/* ───────── Content ───────── */}
-      <motion.div
-        style={{ opacity: heroOpacity }}
-        className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-5 pb-20 md:grid-cols-12 md:gap-6 md:px-8 md:pb-28"
-      >
-        {/* Left column */}
-        <div className="md:col-span-7">
-          {/* Badge */}
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-            className="inline-flex items-center gap-2 rounded-pill border border-line bg-white/80 px-3 py-1.5 text-[12px] font-medium text-ink-3 backdrop-blur"
-          >
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inset-0 animate-ping rounded-full bg-gold/60" />
-              <span className="relative h-1.5 w-1.5 rounded-full bg-gold" />
-            </span>
-            Free Online Tools
-          </motion.span>
-
-          {/* Headline — word-by-word blur-to-sharp */}
-          <h1 className="mt-6 h-display text-[44px] leading-[1.02] text-ink sm:text-[56px] md:text-[64px]">
-            {HEADLINE_LINES.map((line, li) => (
-              <span key={li} className="block">
-                {line.map((word, wi) => {
-                  const absoluteIndex =
-                    HEADLINE_LINES.slice(0, li).reduce((a, l) => a + l.length, 0) + wi;
-                  return (
-                    <motion.span
-                      key={`${li}-${wi}`}
-                      initial={{ opacity: 0, y: 18, filter: 'blur(10px)' }}
-                      animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                      transition={{
-                        duration: 0.9,
-                        ease: [0.2, 0.8, 0.2, 1],
-                        delay: 0.15 + absoluteIndex * 0.06,
-                      }}
-                      className="mr-[0.25em] inline-block will-change-transform"
-                    >
-                      {word}
-                    </motion.span>
-                  );
-                })}
-              </span>
-            ))}
-          </h1>
-
-          {/* Sub */}
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.7 }}
-            className="mt-6 max-w-[480px] text-[17px] leading-[1.6] text-ink-3"
-          >
-            A luxury-minimal suite of 100+ browser-native tools — SEO, image,
-            PDF, text, and developer utilities. No signup. Instant. Beautifully
-            crafted.
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.85 }}
-            className="mt-7 flex flex-wrap items-center gap-3"
-          >
-            <a
-              href="#tools"
-              className="group inline-flex items-center gap-1.5 rounded-[12px] bg-ink px-5 py-3.5 text-[14px] font-medium text-white transition-all duration-300 ease-lux hover:scale-[1.02] hover:shadow-gold"
+        {/* Headline — word-by-word blur-to-sharp stagger */}
+        <h1 className="mt-8 h-display max-w-[820px] text-[40px] text-midnight sm:text-[54px] md:text-[68px]">
+          {HEADLINE_WORDS.map((word, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{
+                duration: 1,
+                ease: [0.19, 1, 0.22, 1],
+                delay: 0.2 + i * 0.06,
+              }}
+              className="mr-[0.22em] inline-block will-change-transform"
             >
-              Explore all tools
-              <ArrowRight
-                size={15}
-                strokeWidth={2}
-                className="transition-transform duration-300 ease-spring group-hover:translate-x-0.5"
-              />
-            </a>
-            <a
-              href="#seo-suite"
-              className="group inline-flex items-center gap-2 rounded-[12px] px-4 py-3.5 text-[14px] font-medium text-ink-2 transition-colors hover:text-ink"
-            >
-              <span className="grid h-8 w-8 place-items-center rounded-full border border-line bg-white transition-all duration-300 group-hover:border-gold-border group-hover:bg-gold-bg">
-                <PlayCircle
-                  size={16}
-                  strokeWidth={1.5}
-                  className="text-ink-2 transition-colors group-hover:text-gold"
-                />
-              </span>
-              Watch 60-sec tour
-            </a>
-          </motion.div>
+              {word}
+            </motion.span>
+          ))}
+        </h1>
 
-          {/* Stats */}
-          <HeroStats />
-        </div>
+        {/* Subheadline */}
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1], delay: 0.7 }}
+          className="mt-6 max-w-[520px] text-[17px] leading-[1.53] tracking-[-0.22px] text-graphite"
+        >
+          A suite of 100+ browser-native utilities — SEO, image compression, PDF,
+          text analysis, and developer tools. No installs. No accounts. Just results.
+        </motion.p>
 
-        {/* Right column — 3D tilt preview card */}
-        <div className="relative md:col-span-5">
-          <TiltCard />
-        </div>
+        {/* CTA row */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1], delay: 0.9 }}
+          className="mt-9 flex flex-wrap items-center justify-center gap-3"
+        >
+          {/* Primary dark pill */}
+          <a
+            href="#tools"
+            className="group inline-flex items-center gap-2 rounded-pill bg-midnight px-6 py-3.5 text-[15px] font-medium text-white transition-all duration-200 hover:bg-charcoal hover:shadow-sm"
+          >
+            Explore All Tools
+            <ArrowRight
+              size={15}
+              strokeWidth={2}
+              className="transition-transform duration-300 ease-spring group-hover:translate-x-0.5"
+            />
+          </a>
+          {/* Ghost ember link */}
+          <a
+            href="#seo-suite"
+            className="inline-flex items-center gap-1.5 px-4 py-3.5 text-[15px] font-medium text-ember transition-colors duration-200 hover:text-ember/80"
+          >
+            Watch the demo
+          </a>
+        </motion.div>
+
+        {/* Stats row */}
+        <HeroStats />
+
+        {/* Floating tool preview card beneath */}
+        <motion.div
+          initial={{ opacity: 0, y: 40, scale: 0.96 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1.2, ease: [0.19, 1, 0.22, 1], delay: 1.1 }}
+          className="relative mt-16 w-full max-w-[700px]"
+        >
+          <HeroPreviewCard />
+        </motion.div>
       </motion.div>
     </section>
   );
 }
 
-/* ──────────────────────────────────────────────────────────── */
-/* Stats bar — counters animate when in viewport               */
-/* ──────────────────────────────────────────────────────────── */
+/* ──────────────────────────────────────────────────── */
+/* Background parallax layers                          */
+/* ──────────────────────────────────────────────────── */
+
+function BackgroundLayers() {
+  const { scrollY } = useScroll();
+  const orb1Y = useTransform(scrollY, [0, 600], [0, 100]);
+  const orb2Y = useTransform(scrollY, [0, 600], [0, -70]);
+  const gridY = useTransform(scrollY, [0, 600], [0, 50]);
+
+  return (
+    <>
+      {/* Subtle grid */}
+      <motion.div
+        aria-hidden
+        style={{ y: gridY }}
+        className="pointer-events-none absolute inset-0 -z-10 opacity-30"
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              'linear-gradient(to right, rgba(71,70,69,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(71,70,69,0.04) 1px, transparent 1px)',
+            backgroundSize: '56px 56px',
+            maskImage: 'radial-gradient(ellipse at 50% 30%, black 30%, transparent 70%)',
+            WebkitMaskImage: 'radial-gradient(ellipse at 50% 30%, black 30%, transparent 70%)',
+          }}
+        />
+      </motion.div>
+
+      {/* Ember orange glow — top */}
+      <motion.div
+        aria-hidden
+        style={{ y: orb1Y }}
+        className="pointer-events-none absolute -top-32 left-1/2 -z-10 h-[500px] w-[500px] -translate-x-1/2"
+      >
+        <div className="h-full w-full animate-blob rounded-full bg-ember/[0.06] blur-[100px]" />
+      </motion.div>
+
+      {/* Cool blue glow — bottom right */}
+      <motion.div
+        aria-hidden
+        style={{ y: orb2Y }}
+        className="pointer-events-none absolute -right-32 top-64 -z-10 h-[400px] w-[400px]"
+      >
+        <div className="h-full w-full animate-blob rounded-full bg-sky/[0.05] blur-[80px] [animation-delay:5s]" />
+      </motion.div>
+    </>
+  );
+}
+
+/* ──────────────────────────────────────────────────── */
+/* Hero Stats — animated counters                      */
+/* ──────────────────────────────────────────────────── */
+
 function HeroStats() {
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
@@ -182,10 +172,7 @@ function HeroStats() {
     if (!el) return;
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          io.disconnect();
-        }
+        if (entry.isIntersecting) { setVisible(true); io.disconnect(); }
       },
       { threshold: 0.4 },
     );
@@ -198,14 +185,17 @@ function HeroStats() {
   const signups = useCountUp({ to: 0, start: visible });
 
   return (
-    <div
+    <motion.div
       ref={ref}
-      className="mt-10 grid max-w-[520px] grid-cols-3 overflow-hidden rounded-[14px] border border-line bg-white/70 backdrop-blur-sm"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1], delay: 1.05 }}
+      className="mt-12 grid grid-cols-3 overflow-hidden rounded-cards border border-stone-surface bg-white shadow-subtle"
     >
       <StatCell value={`${tools}+`} label="Free tools" />
       <StatCell value={formatCompact(users)} label="Monthly users" divide />
       <StatCell value={`${signups}`} label="Signups needed" divide />
-    </div>
+    </motion.div>
   );
 }
 
@@ -219,90 +209,83 @@ function StatCell({
   divide?: boolean;
 }) {
   return (
-    <div
-      className={`px-4 py-4 ${divide ? 'border-l border-line' : ''}`}
-    >
-      <p className="text-[22px] font-semibold tracking-tight text-ink">
+    <div className={`px-5 py-4 ${divide ? 'border-l border-stone-surface' : ''}`}>
+      <p className="text-[20px] font-semibold tracking-tight text-midnight tabular-nums sm:text-[22px]">
         {value}
       </p>
-      <p className="mt-0.5 text-[11.5px] text-ink-3">{label}</p>
+      <p className="mt-0.5 text-[11.5px] font-medium text-ash">{label}</p>
     </div>
   );
 }
 
-/* ──────────────────────────────────────────────────────────── */
-/* Tilt card — tracks mouse position, spring-driven rotation   */
-/* ──────────────────────────────────────────────────────────── */
-function TiltCard() {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
+/* ──────────────────────────────────────────────────── */
+/* Hero Preview Card (UI shell for image compressor)   */
+/* ──────────────────────────────────────────────────── */
 
-  // Max 5deg in either direction, smoothed with spring
-  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [5, -5]), {
-    stiffness: 300,
-    damping: 30,
-  });
-  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-5, 5]), {
-    stiffness: 300,
-    damping: 30,
-  });
-
-  const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const el = ref.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    x.set((e.clientX - rect.left) / rect.width - 0.5);
-    y.set((e.clientY - rect.top) / rect.height - 0.5);
-  };
-
-  const onLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
+function HeroPreviewCard() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30, scale: 0.97 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.9, ease: [0.2, 0.8, 0.2, 1], delay: 0.35 }}
-      className="relative"
-      style={{ perspective: 1200 }}
-    >
-      <motion.div
-        ref={ref}
-        onMouseMove={onMove}
-        onMouseLeave={onLeave}
-        style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
-        className="relative rounded-[28px] border border-line bg-white p-2 shadow-lux"
-      >
-        <CompressorPreview />
-
-        {/* Floating badge — top right */}
-        <div
-          className="pointer-events-none absolute -right-4 -top-4 animate-floatY rounded-[14px] border border-gold-border bg-white px-3.5 py-2 shadow-lux"
-          style={{ transform: 'translateZ(40px)' }}
-        >
-          <p className="text-[10.5px] font-semibold uppercase tracking-wider text-gold">
-            72% smaller
-          </p>
-          <p className="text-[12px] font-medium text-ink">in 0.8s</p>
+    <div className="relative overflow-hidden rounded-cards-lg border border-stone-surface bg-white p-1.5 shadow-sm">
+      {/* Inner card */}
+      <div className="rounded-[18px] bg-parchment p-6">
+        {/* Toolbar */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="h-3 w-3 rounded-full bg-coral/60" />
+            <span className="h-3 w-3 rounded-full bg-sunburst/60" />
+            <span className="h-3 w-3 rounded-full bg-meadow/60" />
+          </div>
+          <span className="rounded-tags bg-white px-2.5 py-1 text-[11px] font-medium text-ash shadow-subtle">
+            Image Compressor
+          </span>
         </div>
 
-        {/* Floating badge — bottom left */}
-        <div
-          className="pointer-events-none absolute -bottom-4 -left-4 animate-floatY2 rounded-[14px] border border-line bg-white px-3.5 py-2 shadow-lux"
-          style={{ transform: 'translateZ(30px)' }}
-        >
-          <div className="flex items-center gap-2">
-            <span className="text-[13px]">★</span>
-            <div>
-              <p className="text-[12px] font-semibold text-ink">4.8 Rating</p>
-              <p className="text-[10.5px] text-ink-4">12k reviews</p>
+        {/* Mock content */}
+        <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
+          {/* File item */}
+          <div className="col-span-2 flex items-center gap-3 rounded-cards bg-white p-4 shadow-subtle">
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-cards bg-parchment">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" className="text-graphite">
+                <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <rect x="3" y="4" width="18" height="16" rx="3" stroke="currentColor" strokeWidth="1.5"/>
+              </svg>
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="truncate text-[13px] font-medium text-charcoal">
+                hero-banner.png
+              </p>
+              <p className="text-[11.5px] text-ash">2.4 MB → 672 KB</p>
             </div>
+            <span className="rounded-tags bg-meadow/10 px-2 py-0.5 text-[11px] font-semibold text-meadow">
+              −72%
+            </span>
+          </div>
+
+          {/* Mini stat */}
+          <div className="flex flex-col items-center justify-center rounded-cards bg-white p-4 shadow-subtle">
+            <p className="text-[28px] font-semibold tracking-tight text-midnight">72<span className="text-ember">%</span></p>
+            <p className="mt-1 text-[11px] font-medium text-ash">Size reduced</p>
           </div>
         </div>
-      </motion.div>
-    </motion.div>
+
+        {/* Progress */}
+        <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-stone-surface">
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: '100%' }}
+            transition={{ duration: 2, ease: [0.19, 1, 0.22, 1], delay: 1.5 }}
+            className="h-full rounded-full bg-gradient-to-r from-ember/80 to-ember"
+          />
+        </div>
+        <p className="mt-2 text-center text-[11.5px] text-ash">Completed in 0.8s — no server upload</p>
+      </div>
+
+      {/* Floating badges */}
+      <div className="pointer-events-none absolute -right-3 top-6 animate-floatY rounded-pill border border-stone-surface bg-white px-3 py-1.5 shadow-sm">
+        <p className="text-[11px] font-semibold text-ember">72% smaller</p>
+      </div>
+      <div className="pointer-events-none absolute -left-3 bottom-10 animate-floatY2 rounded-pill border border-stone-surface bg-white px-3 py-1.5 shadow-sm">
+        <p className="text-[11px] font-medium text-charcoal">★ 4.8 rating</p>
+      </div>
+    </div>
   );
 }
