@@ -14,11 +14,23 @@ const WordCounter = dynamic(() =>
 const JsonFormatter = dynamic(() =>
   import('./JsonFormatter').then((mod) => mod.JsonFormatter)
 );
+const MetaTagGenerator = dynamic(() =>
+  import('./MetaTagGenerator').then((mod) => mod.MetaTagGenerator)
+);
+const PdfCompressor = dynamic(() =>
+  import('./PdfCompressor').then((mod) => mod.PdfCompressor)
+);
+const DomainAuthorityChecker = dynamic(() =>
+  import('./DomainAuthorityChecker').then((mod) => mod.DomainAuthorityChecker)
+);
 
 const toolComponents: Record<string, React.ComponentType> = {
   'image-compressor': ImageCompressor,
   'word-counter': WordCounter,
   'json-formatter': JsonFormatter,
+  'meta-tag-generator': MetaTagGenerator,
+  'pdf-compressor': PdfCompressor,
+  'domain-authority-checker': DomainAuthorityChecker,
 };
 
 interface ToolPageClientProps {

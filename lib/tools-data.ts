@@ -25,7 +25,7 @@ const toolsRegistry: ToolData[] = [
     seoDescription:
       'Compress images up to 80% smaller without quality loss. Free online JPG, PNG, WEBP compressor. No signup, no limits, works in your browser.',
     tags: ['image', 'compress', 'jpg', 'png', 'webp', 'resize', 'optimize'],
-    relatedTools: ['word-counter', 'json-formatter'],
+    relatedTools: ['word-counter', 'json-formatter', 'pdf-compressor'],
     faqs: [
       {
         q: 'How much can I compress my images?',
@@ -61,7 +61,7 @@ const toolsRegistry: ToolData[] = [
     seoDescription:
       'Count words, characters, sentences, and paragraphs in real-time. Free online word counter with reading time estimate. No signup needed.',
     tags: ['text', 'word count', 'character count', 'writing', 'content'],
-    relatedTools: ['json-formatter', 'image-compressor'],
+    relatedTools: ['json-formatter', 'image-compressor', 'meta-tag-generator'],
     faqs: [
       {
         q: 'How is reading time calculated?',
@@ -97,7 +97,7 @@ const toolsRegistry: ToolData[] = [
     seoDescription:
       'Format, validate, and minify JSON online. Free JSON formatter with syntax highlighting, tree view, and error detection. No signup required.',
     tags: ['json', 'format', 'validate', 'minify', 'developer', 'api'],
-    relatedTools: ['word-counter', 'image-compressor'],
+    relatedTools: ['word-counter', 'image-compressor', 'domain-authority-checker'],
     faqs: [
       {
         q: 'Can this tool fix invalid JSON?',
@@ -118,6 +118,114 @@ const toolsRegistry: ToolData[] = [
       {
         q: 'Is there a size limit for JSON input?',
         a: 'The tool works entirely in your browser, so it can handle JSON files up to several megabytes. Very large files may take a moment to parse and render.',
+      },
+    ],
+  },
+  {
+    slug: 'meta-tag-generator',
+    name: 'Meta Tag Generator',
+    category: 'seo-tools',
+    categoryLabel: 'SEO Tools',
+    description: 'Generate perfect meta tags for SEO. Live Google SERP & social media previews.',
+    longDescription:
+      'Create optimized meta tags for your web pages with our free Meta Tag Generator. See live previews of how your page will appear in Google search results and social media shares. Includes Open Graph and Twitter Card tags with character limit indicators and one-click copy.',
+    seoTitle: 'Free Meta Tag Generator — SEO Meta Tags with SERP Preview | ToolStack',
+    seoDescription:
+      'Generate perfect meta tags for SEO with live Google SERP and social media previews. Free Open Graph and Twitter Card generator. Copy-ready HTML output.',
+    tags: ['seo', 'meta tags', 'open graph', 'twitter card', 'serp', 'html'],
+    relatedTools: ['domain-authority-checker', 'word-counter', 'json-formatter'],
+    faqs: [
+      {
+        q: 'What are meta tags and why are they important?',
+        a: 'Meta tags are HTML elements that provide metadata about your web page to search engines and social media platforms. They influence how your page appears in search results and when shared on social media.',
+      },
+      {
+        q: 'What is the ideal length for a meta title?',
+        a: 'Google typically displays the first 50-60 characters of a title tag. We recommend keeping your title under 60 characters to ensure it displays fully in search results without being truncated.',
+      },
+      {
+        q: 'What is the ideal meta description length?',
+        a: 'Meta descriptions should be between 120-155 characters. Google may display up to 155 characters, so keeping within this limit ensures your full description is visible in search results.',
+      },
+      {
+        q: 'What are Open Graph tags?',
+        a: 'Open Graph (OG) tags control how your page appears when shared on social media platforms like Facebook, LinkedIn, and Twitter. They define the title, description, image, and URL shown in the social card.',
+      },
+      {
+        q: 'Do meta tags directly affect search rankings?',
+        a: 'While meta descriptions do not directly impact rankings, well-written meta tags improve click-through rates from search results, which can indirectly boost your SEO performance. The title tag is a confirmed ranking factor.',
+      },
+    ],
+  },
+  {
+    slug: 'pdf-compressor',
+    name: 'PDF Compressor',
+    category: 'pdf-tools',
+    categoryLabel: 'PDF Tools',
+    description: 'Compress PDF files to reduce size. Choose from multiple compression levels.',
+    longDescription:
+      'Reduce your PDF file sizes with our free PDF Compressor. Choose from low, medium, or high compression levels to balance quality and file size. Drag and drop up to 5 files at once. All processing happens in your browser for complete privacy.',
+    seoTitle: 'Free PDF Compressor — Reduce PDF Size Online | ToolStack',
+    seoDescription:
+      'Compress PDF files up to 70% smaller. Free online PDF compressor with multiple compression levels. No signup, drag & drop, works in your browser.',
+    tags: ['pdf', 'compress', 'reduce size', 'optimize', 'document'],
+    relatedTools: ['image-compressor', 'meta-tag-generator', 'json-formatter'],
+    faqs: [
+      {
+        q: 'How much can I reduce my PDF file size?',
+        a: 'Depending on the compression level you choose, you can reduce PDF sizes by 10-70%. High compression offers the most reduction while low compression preserves more quality.',
+      },
+      {
+        q: 'Does PDF compression reduce quality?',
+        a: 'Low and medium compression levels maintain excellent quality for most documents. High compression may reduce image quality within the PDF but text remains sharp and readable.',
+      },
+      {
+        q: 'How many PDFs can I compress at once?',
+        a: 'You can compress up to 5 PDF files simultaneously. Each file is processed independently and you can download them individually once compression is complete.',
+      },
+      {
+        q: 'Are my PDF files uploaded to a server?',
+        a: 'No. Currently, the compression preview runs entirely in your browser. Your files never leave your device. Full server-side compression for maximum reduction is coming soon.',
+      },
+      {
+        q: 'What is the maximum file size supported?',
+        a: 'The browser-based tool works best with PDFs under 50MB. For larger files, our upcoming server-side compression will handle files up to 500MB.',
+      },
+    ],
+  },
+  {
+    slug: 'domain-authority-checker',
+    name: 'Domain Authority Checker',
+    category: 'seo-tools',
+    categoryLabel: 'SEO Tools',
+    description: 'Check domain authority, page authority, spam score & backlink metrics instantly.',
+    longDescription:
+      'Analyze any website\'s SEO strength with our Domain Authority Checker. Get instant metrics including Domain Authority (DA), Page Authority (PA), Spam Score, backlink count, referring domains, and domain age. Beautiful gauge charts and detailed health analysis help you understand your SEO standing.',
+    seoTitle: 'Free Domain Authority Checker — DA, PA, Spam Score & Backlinks | ToolStack',
+    seoDescription:
+      'Check domain authority, page authority, and spam score for any website. Free DA checker with backlink analysis, referring domains, and SEO health score.',
+    tags: ['seo', 'domain authority', 'backlinks', 'spam score', 'page authority', 'da checker'],
+    relatedTools: ['meta-tag-generator', 'word-counter', 'image-compressor'],
+    faqs: [
+      {
+        q: 'What is Domain Authority (DA)?',
+        a: 'Domain Authority is a score from 0-100 developed by Moz that predicts how likely a website is to rank in search engine results. Higher scores indicate greater ranking potential.',
+      },
+      {
+        q: 'What is a good Domain Authority score?',
+        a: 'DA scores vary by niche, but generally: 60+ is excellent, 40-60 is good, 20-40 is average, and below 20 indicates a newer or less established site. Focus on improvement over time rather than absolute numbers.',
+      },
+      {
+        q: 'What is Spam Score?',
+        a: 'Spam Score indicates the percentage of sites with similar features that have been penalized or banned by search engines. A lower spam score (under 30%) is ideal. High scores suggest reviewing your backlink profile.',
+      },
+      {
+        q: 'How often should I check my Domain Authority?',
+        a: 'Domain Authority changes gradually. Checking monthly is sufficient for most sites. Focus on long-term trends rather than day-to-day fluctuations.',
+      },
+      {
+        q: 'How can I improve my Domain Authority?',
+        a: 'Improve DA by earning high-quality backlinks from authoritative sites, creating valuable content, fixing technical SEO issues, and removing toxic backlinks. It is a long-term metric that grows with consistent effort.',
       },
     ],
   },
