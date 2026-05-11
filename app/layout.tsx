@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Bricolage_Grotesque } from 'next/font/google';
+import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import './globals.css';
 
 const inter = Inter({
@@ -47,6 +48,25 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${bricolage.variable}`}>
       <head>
+        {/* Google Analytics 4 */}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+                `,
+              }}
+            />
+          </>
+        )}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -118,6 +138,7 @@ export default function RootLayout({
       </head>
       <body className="font-body bg-bg text-body antialiased">
         {children}
+        <VercelAnalytics />
       </body>
     </html>
   );
