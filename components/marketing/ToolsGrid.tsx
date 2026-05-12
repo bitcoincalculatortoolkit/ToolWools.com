@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Image, Tag, Type, FileText, Globe, Code2, FileSignature, Combine, Scissors } from 'lucide-react';
+import { ArrowRight, Image, Tag, Type, FileText, Globe, Code2, FileSignature, Combine, Scissors, RotateCw, Trash2, Stamp, Lock } from 'lucide-react';
 
 const CATEGORIES = [
   'All Tools', 'SEO Tools', 'Image Tools', 'PDF Tools',
@@ -19,6 +19,10 @@ const TOOLS = [
   { icon: FileSignature, bg: 'bg-primary-bg', color: 'text-primary', gradientFrom: 'from-primary/5', name: 'PDF Signer', desc: 'Sign PDFs free — draw, type or upload signature', href: '/tools/pdf-tools/sign-pdf' },
   { icon: Combine, bg: 'bg-blue-bg', color: 'text-blue', gradientFrom: 'from-blue/5', name: 'Merge PDF', desc: 'Combine multiple PDFs into one document', href: '/tools/pdf-tools/merge-pdf' },
   { icon: Scissors, bg: 'bg-green-bg', color: 'text-green', gradientFrom: 'from-green/5', name: 'Split PDF', desc: 'Extract pages or split PDF by range', href: '/tools/pdf-tools/split-pdf' },
+  { icon: RotateCw, bg: 'bg-primary-bg', color: 'text-primary', gradientFrom: 'from-primary/5', name: 'Rotate PDF', desc: 'Rotate PDF pages individually or in bulk', href: '/tools/pdf-tools/rotate-pdf' },
+  { icon: Trash2, bg: 'bg-blue-bg', color: 'text-blue', gradientFrom: 'from-blue/5', name: 'Delete PDF Pages', desc: 'Remove unwanted pages from any PDF', href: '/tools/pdf-tools/delete-pages' },
+  { icon: Stamp, bg: 'bg-green-bg', color: 'text-green', gradientFrom: 'from-green/5', name: 'Watermark PDF', desc: 'Add text or image watermarks to PDFs', href: '/tools/pdf-tools/watermark-pdf' },
+  { icon: Lock, bg: 'bg-primary-bg', color: 'text-primary', gradientFrom: 'from-primary/5', name: 'Protect PDF', desc: 'Password protect or unlock PDF files', href: '/tools/pdf-tools/protect-pdf' },
 ];
 
 export function ToolsGrid() {

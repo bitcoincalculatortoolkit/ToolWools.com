@@ -32,6 +32,18 @@ const MergePdf = dynamic(() =>
 const SplitPdf = dynamic(() =>
   import('./SplitPdf').then((mod) => mod.SplitPdf),
 );
+const RotatePdf = dynamic(() =>
+  import('./RotatePdf').then((mod) => mod.RotatePdf),
+);
+const DeletePages = dynamic(() =>
+  import('./DeletePages').then((mod) => mod.DeletePages),
+);
+const WatermarkPdf = dynamic(() =>
+  import('./WatermarkPdf').then((mod) => mod.WatermarkPdf),
+);
+const ProtectPdf = dynamic(() =>
+  import('./ProtectPdf').then((mod) => mod.ProtectPdf),
+);
 
 /* ──────────────────────────────────────────────────────────
    Long-form SEO content blocks — one per tool.
@@ -58,6 +70,10 @@ const toolComponents: Record<string, React.ComponentType> = {
   'sign-pdf': SignPdf,
   'merge-pdf': MergePdf,
   'split-pdf': SplitPdf,
+  'rotate-pdf': RotatePdf,
+  'delete-pages': DeletePages,
+  'watermark-pdf': WatermarkPdf,
+  'protect-pdf': ProtectPdf,
 };
 
 const toolSeoContent: Record<string, React.ComponentType> = {

@@ -296,6 +296,126 @@ const toolsRegistry: ToolData[] = [
       { q: 'How can I improve my Domain Authority?', a: 'Improve DA by earning high-quality backlinks from authoritative sites, creating valuable content, fixing technical SEO issues, and removing toxic backlinks. It is a long-term metric that grows with consistent effort.' },
     ],
   },
+  {
+    slug: 'rotate-pdf',
+    name: 'Rotate PDF',
+    category: 'pdf-tools',
+    categoryLabel: 'PDF Tools',
+    description: 'Rotate PDF pages 90°, 180°, or 270°. Rotate individual pages or all pages at once.',
+    longDescription:
+      'ToolWools\' free Rotate PDF tool lets you rotate individual pages or all pages at once. Preview every page as a thumbnail, click to select pages, then apply 90° CW, 90° CCW, or 180° rotation. Visual preview shows the rotation before you download. Everything happens in your browser — no upload, no server.',
+    heroSubheadline:
+      'Rotate PDF pages in any direction — 90° clockwise, 90° counter-clockwise, or 180°. Select individual pages or rotate all at once. Visual preview with thumbnails, instant download.',
+    heroHighlights: ['Rotate individual pages', 'Bulk rotate all', 'Visual preview'],
+    seoTitle: 'Free Rotate PDF — Rotate Pages 90°, 180° Online | ToolWools',
+    seoDescription:
+      'Rotate PDF pages online for free. Rotate 90° CW, 90° CCW, or 180°. Select individual pages or rotate all at once. No signup, no upload, instant download.',
+    tags: ['rotate pdf', 'pdf rotation', 'turn pdf pages', 'flip pdf', 'rotate pages', 'pdf page orientation'],
+    relatedTools: ['split-pdf', 'merge-pdf', 'delete-pages'],
+    howToSteps: [
+      { name: 'Upload your PDF', text: 'Drag and drop a PDF onto the upload zone or click to browse. Every page renders as a visual thumbnail.' },
+      { name: 'Select pages to rotate', text: 'Click thumbnails to select individual pages, or use Select All to target every page. The selection is highlighted in blue.' },
+      { name: 'Apply rotation', text: 'Use the per-page rotation buttons (CW/CCW), or use Rotate All / Rotate Selected to apply 90°, -90°, or 180° rotation in bulk.' },
+      { name: 'Download rotated PDF', text: 'Click Apply & Download. The rotated PDF is generated instantly using pdf-lib and downloads to your device.' },
+    ],
+    faqs: [
+      { q: 'Can I rotate just one page in a multi-page PDF?', a: 'Yes. Each page has individual rotation controls. Click the CW or CCW button on any page thumbnail to rotate just that page without affecting others.' },
+      { q: 'What rotation angles are supported?', a: 'You can rotate pages 90° clockwise, 90° counter-clockwise, or 180°. Multiple rotations stack, so clicking 90° CW twice gives you 180°.' },
+      { q: 'Does the rotation preview show the actual result?', a: 'Yes. The thumbnail rotates in real-time using CSS transforms so you can see exactly how each page will look before downloading.' },
+      { q: 'Are my files uploaded to a server?', a: 'No. The entire rotation operation runs in your browser using pdf-lib. Your PDF never leaves your device — no server, no upload, complete privacy.' },
+      { q: 'Is there a page limit?', a: 'There is no hard page limit. The tool renders thumbnails for every page and applies rotation to any number of pages. Very large documents may take a moment to render thumbnails.' },
+    ],
+  },
+  {
+    slug: 'delete-pages',
+    name: 'Delete PDF Pages',
+    category: 'pdf-tools',
+    categoryLabel: 'PDF Tools',
+    description: 'Remove unwanted pages from any PDF. Click to mark pages for deletion, download the trimmed result.',
+    longDescription:
+      'ToolWools\' free Delete PDF Pages tool lets you visually select and remove unwanted pages from any PDF document. Upload your file, click pages to mark them for deletion (shown with a red X overlay), then download the trimmed PDF with only the pages you want to keep. All processing happens locally in your browser.',
+    heroSubheadline:
+      'Remove unwanted pages from any PDF in seconds. Visual page selector with thumbnails — click pages to mark for deletion, see a live counter of kept pages, download instantly.',
+    heroHighlights: ['Visual page selector', 'Red X deletion markers', 'Keep counter'],
+    seoTitle: 'Free Delete PDF Pages — Remove Pages from PDF Online | ToolWools',
+    seoDescription:
+      'Delete pages from PDF files online for free. Click to mark unwanted pages, download trimmed PDF. Visual thumbnails, no signup, no upload needed.',
+    tags: ['delete pdf pages', 'remove pdf pages', 'pdf page remover', 'trim pdf', 'cut pdf pages'],
+    relatedTools: ['split-pdf', 'rotate-pdf', 'merge-pdf'],
+    howToSteps: [
+      { name: 'Upload your PDF', text: 'Drag and drop a PDF onto the upload zone or click to browse. Every page renders as a clickable thumbnail.' },
+      { name: 'Mark pages for deletion', text: 'Click any page thumbnail to mark it for deletion — it shows a red X overlay and dims. Use Select All, Deselect All, or Invert for quick selection.' },
+      { name: 'Review the keep counter', text: 'The counter shows "Keeping X of Y pages" so you always know what the final PDF will contain. At least one page must remain.' },
+      { name: 'Delete and download', text: 'Click Delete Pages & Download. Pages are removed in reverse order to preserve indices, and the trimmed PDF downloads instantly.' },
+    ],
+    faqs: [
+      { q: 'Can I delete multiple pages at once?', a: 'Yes. Click as many pages as you want to mark them for deletion. You can also use Select All to mark everything, then click back the pages you want to keep. The Invert button flips your selection.' },
+      { q: 'Is there a minimum number of pages I must keep?', a: 'Yes. You must keep at least one page — a PDF cannot have zero pages. The tool prevents you from marking all pages for deletion.' },
+      { q: 'Does deleting pages affect the remaining page formatting?', a: 'No. Pages are removed cleanly using pdf-lib. All remaining pages keep their original formatting, text, images, annotations, and links intact.' },
+      { q: 'Are my files uploaded to a server?', a: 'No. The entire operation runs locally in your browser. Your PDF never leaves your device — complete privacy guaranteed.' },
+      { q: 'Can I undo the deletion after downloading?', a: 'The downloaded PDF only contains the kept pages — deletion is permanent in the output. Keep your original file if you might need those pages later.' },
+    ],
+  },
+  {
+    slug: 'watermark-pdf',
+    name: 'Watermark PDF',
+    category: 'pdf-tools',
+    categoryLabel: 'PDF Tools',
+    description: 'Add text or image watermarks to PDF pages. Customize font, color, opacity, position, and rotation.',
+    longDescription:
+      'ToolWools\' free Watermark PDF tool adds text or image watermarks to your PDF documents. Choose from text watermarks (custom text, font size, color, opacity, rotation) or image watermarks (PNG/JPG with scale and positioning). Live preview shows exactly how your watermark will look. Apply to all pages or specific pages only.',
+    heroSubheadline:
+      'Add professional watermarks to any PDF — text or image. Customize font size, color, opacity, rotation, and position. Live preview, apply to all or specific pages. Free, private, instant.',
+    heroHighlights: ['Text & image watermarks', 'Live preview', 'Custom positioning'],
+    seoTitle: 'Free Watermark PDF — Add Text or Image Watermarks Online | ToolWools',
+    seoDescription:
+      'Add watermarks to PDF files for free. Text or image watermarks with custom opacity, rotation, position. Live preview, no signup, works in your browser.',
+    tags: ['watermark pdf', 'add watermark', 'pdf stamp', 'confidential pdf', 'draft watermark', 'pdf branding'],
+    relatedTools: ['protect-pdf', 'sign-pdf', 'rotate-pdf'],
+    howToSteps: [
+      { name: 'Upload your PDF', text: 'Drag and drop a PDF onto the upload zone or click to browse. The first page renders as a live preview.' },
+      { name: 'Choose watermark type', text: 'Select Text to type custom watermark text (e.g. CONFIDENTIAL, DRAFT), or Image to upload a PNG/JPG logo or stamp.' },
+      { name: 'Configure appearance', text: 'Adjust font size, color, opacity, rotation angle, and position. For image watermarks, set the scale percentage. Preview updates live.' },
+      { name: 'Apply and download', text: 'Choose to apply to all pages or specific pages, then click Apply Watermark & Download. The watermarked PDF downloads instantly.' },
+    ],
+    faqs: [
+      { q: 'What types of watermarks can I add?', a: 'Two types: Text watermarks let you type any text (CONFIDENTIAL, DRAFT, your company name) with customizable font size, color, opacity, and rotation. Image watermarks let you upload a PNG or JPG image as a watermark with adjustable scale and opacity.' },
+      { q: 'Can I control where the watermark appears?', a: 'Yes. Choose from 5 positions: center, top-left, top-right, bottom-left, or bottom-right. For text watermarks, you can also control the rotation angle from -90° to 90°.' },
+      { q: 'Can I watermark only specific pages?', a: 'Yes. Switch from "All Pages" to "Specific Pages" and enter page numbers separated by commas (e.g. 1-3, 5, 7-10). Only those pages will receive the watermark.' },
+      { q: 'Are my files uploaded to a server?', a: 'No. All watermarking happens locally in your browser using pdf-lib. Your documents and watermark images never leave your device.' },
+      { q: 'Can I remove a watermark after downloading?', a: 'The watermark is embedded directly into the PDF. To get the original without watermark, keep your source file. This tool is designed to permanently stamp documents.' },
+    ],
+  },
+  {
+    slug: 'protect-pdf',
+    name: 'Password Protect PDF',
+    category: 'pdf-tools',
+    categoryLabel: 'PDF Tools',
+    description: 'Encrypt PDFs with a password or remove existing password protection. Set document permissions.',
+    longDescription:
+      'ToolWools\' free Password Protect PDF tool lets you encrypt PDFs with a user password and owner password, controlling permissions like printing, copying, and modifying. You can also remove existing password protection by entering the current password. Everything runs locally in your browser.',
+    heroSubheadline:
+      'Encrypt PDFs with a password or unlock password-protected PDFs. Set granular permissions for printing, copying, modifying, and annotating. Two modes: protect or unlock. Free, private, instant.',
+    heroHighlights: ['Encrypt & decrypt', 'Granular permissions', 'User & owner passwords'],
+    seoTitle: 'Free Password Protect PDF — Encrypt or Unlock PDF Online | ToolWools',
+    seoDescription:
+      'Password protect PDF files for free or remove existing passwords. Set permissions for printing, copying, modifying. No signup, works in your browser.',
+    tags: ['protect pdf', 'password pdf', 'encrypt pdf', 'lock pdf', 'unlock pdf', 'remove pdf password', 'pdf security'],
+    relatedTools: ['watermark-pdf', 'sign-pdf', 'merge-pdf'],
+    howToSteps: [
+      { name: 'Upload your PDF', text: 'Drag and drop a PDF onto the upload zone or click to browse. The file is loaded locally — never uploaded to any server.' },
+      { name: 'Choose encrypt or decrypt mode', text: 'Select Encrypt to add password protection, or Remove Password to unlock an existing protected PDF.' },
+      { name: 'Configure passwords and permissions', text: 'For encryption: set a user password (required to open) and optionally an owner password. Choose which actions to allow: printing, copying, modifying, annotating.' },
+      { name: 'Process and download', text: 'Click the action button. For encryption, download the protected PDF. For decryption, enter the current password and download the unlocked version.' },
+    ],
+    faqs: [
+      { q: 'What is the difference between user password and owner password?', a: 'The user password is required to open the PDF. The owner password controls permissions — with it, someone can change print/copy/modify settings. If you only set a user password, it doubles as the owner password.' },
+      { q: 'Can I control what people do with the protected PDF?', a: 'Yes. You can toggle permissions for printing, copying text, modifying content, and adding annotations. These restrictions are enforced by PDF viewers that respect the owner password permissions.' },
+      { q: 'Can I remove a password from a protected PDF?', a: 'Yes. Switch to Remove Password mode, enter the current password, and the tool saves a new copy without any encryption. You must know the password — the tool cannot crack unknown passwords.' },
+      { q: 'Are my files and passwords uploaded to a server?', a: 'No. Everything runs locally in your browser using pdf-lib. Your files and passwords never leave your device. This is the safest way to encrypt sensitive documents.' },
+      { q: 'What encryption standard is used?', a: 'pdf-lib uses AES-128 encryption, which is the standard encryption for PDF documents. It is supported by all modern PDF readers including Adobe Acrobat, Preview, and Chrome\'s built-in viewer.' },
+    ],
+  },
 ];
 
 export function getToolBySlug(slug: string): ToolData | undefined {
