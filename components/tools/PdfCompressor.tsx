@@ -204,7 +204,7 @@ export function PdfCompressor() {
 
         // Save
         const savedBytes = await newPdf.save();
-        const compressedBlob = new Blob([savedBytes.buffer], { type: 'application/pdf' });
+        const compressedBlob = new Blob([new Uint8Array(savedBytes) as BlobPart], { type: 'application/pdf' });
         const compressedSize = compressedBlob.size;
         const savings = ((pdfFile.originalSize - compressedSize) / pdfFile.originalSize) * 100;
 

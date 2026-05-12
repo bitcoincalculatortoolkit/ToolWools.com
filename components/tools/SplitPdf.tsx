@@ -235,7 +235,7 @@ export function SplitPdf() {
 
         setSplitProgress(80);
         const savedBytes = await newPdf.save();
-        const blob = new Blob([savedBytes.buffer], { type: 'application/pdf' });
+        const blob = new Blob([new Uint8Array(savedBytes) as BlobPart], { type: 'application/pdf' });
 
         const baseName = file?.name.replace(/\.pdf$/i, '') || 'split';
         setSplitResults([
@@ -264,7 +264,7 @@ export function SplitPdf() {
           copiedPages.forEach((page) => newPdf.addPage(page));
 
           const savedBytes = await newPdf.save();
-          const blob = new Blob([savedBytes.buffer], { type: 'application/pdf' });
+          const blob = new Blob([new Uint8Array(savedBytes) as BlobPart], { type: 'application/pdf' });
 
           results.push({
             id: uid(),

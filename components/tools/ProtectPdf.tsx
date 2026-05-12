@@ -118,7 +118,7 @@ export function ProtectPdf() {
       const savedBytes = await pdfDoc.save();
       setProgress(90);
 
-      const blob = new Blob([savedBytes.buffer], { type: 'application/pdf' });
+      const blob = new Blob([new Uint8Array(savedBytes) as BlobPart], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
@@ -177,7 +177,7 @@ export function ProtectPdf() {
       const savedBytes = await pdfDoc.save();
       setProgress(90);
 
-      const blob = new Blob([savedBytes.buffer], { type: 'application/pdf' });
+      const blob = new Blob([new Uint8Array(savedBytes) as BlobPart], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
