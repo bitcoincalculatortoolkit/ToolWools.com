@@ -133,6 +133,56 @@ const toolsRegistry: ToolData[] = [
     ],
   },
   {
+    slug: 'sign-pdf',
+    name: 'PDF Signer',
+    category: 'pdf-tools',
+    categoryLabel: 'PDF Tools',
+    description:
+      'Sign PDFs online free. Draw, type, or upload your signature, drop it on any page, download the signed PDF — all in your browser.',
+    longDescription:
+      'ToolWools&apos; free PDF Signer is a complete electronic-signature toolkit that runs entirely in your browser. Draw, type, or upload your signature, drag it onto any page, add date stamps and text labels, then download a flat signed PDF. Nothing uploads to any server.',
+    heroSubheadline:
+      'A free, private electronic signature tool. Draw your signature with a finger or mouse, type it in a handwriting font, or upload a PNG. Drag onto any page, resize, duplicate, add dates and stamps. Download a flattened PDF ready to email. No signup, no watermark, no upload — your document never leaves your device.',
+    heroHighlights: [
+      'Draw, type, or upload',
+      'Multi-page & multi-stamp',
+      '100% browser-based',
+    ],
+    seoTitle:
+      'Free PDF Signer — Sign PDF Online, Draw or Type Signature | ToolWools',
+    seoDescription:
+      'Sign PDFs online free. Draw your signature, type it in a handwriting font, or upload a PNG. Drag onto any page and download. No signup, no upload, no watermark.',
+    tags: [
+      'sign pdf',
+      'pdf signer',
+      'electronic signature',
+      'esign pdf',
+      'pdf signature',
+      'free pdf signer',
+      'draw signature pdf',
+    ],
+    relatedTools: ['pdf-compressor', 'image-compressor', 'meta-tag-generator'],
+    howToSteps: [
+      { name: 'Upload your PDF', text: 'Drag and drop your PDF onto the upload zone or click to browse. The tool renders each page locally in your browser.' },
+      { name: 'Create your signature', text: 'Choose Draw to sign with your mouse or finger, Type to render your name in a handwriting font, or Upload to use a signature image.' },
+      { name: 'Place it on the page', text: 'Click the Signature button to add it to the active page, then drag it to the right location. Resize using the corner handle, or duplicate with one click.' },
+      { name: 'Add date and text stamps', text: 'Optionally add today&apos;s date or a custom text label like Approved or your title. Stamps can be moved and resized just like signatures.' },
+      { name: 'Download the signed PDF', text: 'Choose a filename and click download. The output is a flat standard PDF ready to email back or file.' },
+    ],
+    faqs: [
+      { q: 'Is signing a PDF with ToolWools legally binding?', a: 'In most countries, yes. The US ESIGN Act and EU eIDAS Regulation recognize electronic signatures as legally valid for ordinary business contracts, provided the signer shows intent, the signature is associated with the document, and both parties consent to electronic business. ToolWools satisfies all three conditions for everyday use — NDAs, invoices, client agreements, offer letters. A few document classes (wills, some property deeds) still require physical signatures.' },
+      { q: 'Does my PDF upload to a server?', a: 'No. The entire tool runs in your browser using Mozilla\'s open-source pdf.js (rendering) and pdf-lib (modification). Your document is never transmitted. You can verify this by disconnecting your internet after the page loads — every feature still works.' },
+      { q: 'What is the difference between Draw, Type, and Upload?', a: 'Draw lets you write your signature with a mouse, trackpad, or touchscreen directly on a signature pad. Type converts your name into a handwriting-style font (four styles available). Upload lets you supply an existing signature as a PNG or JPG. All three produce the same final result on the PDF — a flattened image embedded on the page.' },
+      { q: 'Can I sign a PDF on my phone or tablet?', a: 'Yes. The signature pad supports touch input with full pressure awareness, and the page editor is fully responsive. iOS, Android, and tablet browsers all work. Draw mode on a touchscreen is typically the fastest way to sign.' },
+      { q: 'Can I place multiple signatures on one PDF?', a: 'Yes. Place the same signature on every page, or use different signatures for co-signers. Click an existing stamp and use the floating toolbar to duplicate or delete. Each page can hold an unlimited number of signatures, dates, or text labels.' },
+      { q: 'How do I add my initials to specific pages?', a: 'Switch to Type mode, enter just your initials (e.g. "JD"), choose a font, then click Signature on each page where initials are required. For frequent reuse, save a clean PNG of your initials and use Upload mode.' },
+      { q: 'Does the signed PDF work in Adobe Acrobat and Preview?', a: 'Yes. The output is a standard flattened PDF that opens correctly in Adobe Acrobat, macOS Preview, Google Drive, Dropbox preview, email clients, and all modern PDF viewers. Signatures are embedded as images at the exact position you placed them.' },
+      { q: 'Can I remove or edit the signature after downloading?', a: 'The downloaded PDF is flattened — signatures are baked in. That is intentional: it prevents recipients from tampering with the signed layout. To change a signature, re-open the original in ToolWools, edit, and re-download.' },
+      { q: 'Are there any file-size limits?', a: 'The tool is tested with PDFs up to 100 MB. Very large documents (500+ pages) may take a few extra seconds to render on modest hardware, but every feature still works. There is no page-count cap.' },
+      { q: 'Is this really free? What\'s the catch?', a: 'Genuinely free. ToolWools is supported by optional affiliate recommendations and non-intrusive display ads on tool pages. The PDF Signer has no trial expiration, no watermark, no signup, and no monthly signature quota. The entire feature set is available to every visitor, always.' },
+    ],
+  },
+  {
     slug: 'pdf-compressor',
     name: 'PDF Compressor',
     category: 'pdf-tools',

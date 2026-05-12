@@ -23,6 +23,9 @@ const PdfCompressor = dynamic(() =>
 const DomainAuthorityChecker = dynamic(() =>
   import('./DomainAuthorityChecker').then((mod) => mod.DomainAuthorityChecker),
 );
+const SignPdf = dynamic(() =>
+  import('./SignPdf').then((mod) => mod.SignPdf),
+);
 
 /* ──────────────────────────────────────────────────────────
    Long-form SEO content blocks — one per tool.
@@ -32,6 +35,9 @@ const DomainAuthorityChecker = dynamic(() =>
 const WordCounterContent = dynamic(() =>
   import('./content/WordCounterContent').then((mod) => mod.WordCounterContent),
 );
+const SignPdfContent = dynamic(() =>
+  import('./content/SignPdfContent').then((mod) => mod.SignPdfContent),
+);
 
 const toolComponents: Record<string, React.ComponentType> = {
   'image-compressor': ImageCompressor,
@@ -40,10 +46,12 @@ const toolComponents: Record<string, React.ComponentType> = {
   'meta-tag-generator': MetaTagGenerator,
   'pdf-compressor': PdfCompressor,
   'domain-authority-checker': DomainAuthorityChecker,
+  'sign-pdf': SignPdf,
 };
 
 const toolSeoContent: Record<string, React.ComponentType> = {
   'word-counter': WordCounterContent,
+  'sign-pdf': SignPdfContent,
 };
 
 interface ToolPageClientProps {
