@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Image, Tag, Type, FileText, Globe, Code2, FileSignature } from 'lucide-react';
+import { ArrowRight, Image, Tag, Type, FileText, Globe, Code2, FileSignature, Combine, Scissors } from 'lucide-react';
 
 const CATEGORIES = [
   'All Tools', 'SEO Tools', 'Image Tools', 'PDF Tools',
@@ -17,6 +17,8 @@ const TOOLS = [
   { icon: Globe, bg: 'bg-blue-bg', color: 'text-blue', gradientFrom: 'from-blue/5', name: 'Domain Authority Checker', desc: 'Check domain authority and SEO score', href: '/tools/seo-tools/domain-authority-checker' },
   { icon: Code2, bg: 'bg-green-bg', color: 'text-green', gradientFrom: 'from-green/5', name: 'JSON Formatter', desc: 'Format and validate JSON data easily', href: '/tools/developer-tools/json-formatter' },
   { icon: FileSignature, bg: 'bg-primary-bg', color: 'text-primary', gradientFrom: 'from-primary/5', name: 'PDF Signer', desc: 'Sign PDFs free — draw, type or upload signature', href: '/tools/pdf-tools/sign-pdf' },
+  { icon: Combine, bg: 'bg-blue-bg', color: 'text-blue', gradientFrom: 'from-blue/5', name: 'Merge PDF', desc: 'Combine multiple PDFs into one document', href: '/tools/pdf-tools/merge-pdf' },
+  { icon: Scissors, bg: 'bg-green-bg', color: 'text-green', gradientFrom: 'from-green/5', name: 'Split PDF', desc: 'Extract pages or split PDF by range', href: '/tools/pdf-tools/split-pdf' },
 ];
 
 export function ToolsGrid() {

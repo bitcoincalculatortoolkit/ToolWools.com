@@ -216,6 +216,66 @@ const toolsRegistry: ToolData[] = [
     ],
   },
   {
+    slug: 'merge-pdf',
+    name: 'Merge PDF',
+    category: 'pdf-tools',
+    categoryLabel: 'PDF Tools',
+    description: 'Merge multiple PDF files into one document. Drag to reorder pages before combining.',
+    longDescription:
+      'ToolWools\' free Merge PDF tool combines multiple PDF files into a single document right in your browser. Upload up to 10 files, drag to reorder, preview page counts and thumbnails, then download the merged result instantly. No signup, no upload to any server — everything happens locally.',
+    heroSubheadline:
+      'Combine multiple PDF files into a single document in seconds. Drag to reorder, preview page counts, and download the merged result. 100% private — files never leave your browser.',
+    heroHighlights: ['Drag to reorder', 'Up to 10 files', 'Preview thumbnails'],
+    seoTitle: 'Free Merge PDF — Combine PDF Files Online | ToolWools',
+    seoDescription:
+      'Merge multiple PDF files into one document for free. Drag to reorder, preview thumbnails, download instantly. No signup, no upload, 100% browser-based.',
+    tags: ['merge pdf', 'combine pdf', 'join pdf', 'pdf merger', 'merge documents'],
+    relatedTools: ['split-pdf', 'sign-pdf', 'pdf-compressor'],
+    howToSteps: [
+      { name: 'Upload your PDF files', text: 'Drag and drop up to 10 PDF files onto the upload zone or click to browse. Each file is previewed with a thumbnail of its first page.' },
+      { name: 'Reorder files by dragging', text: 'Drag files up or down using the grip handle to set the order they appear in the final merged document.' },
+      { name: 'Set output filename', text: 'Customize the output filename or keep the default "merged.pdf". Review the total page count across all files.' },
+      { name: 'Merge and download', text: 'Click the Merge button and watch the progress bar. Once complete, the merged PDF downloads automatically to your device.' },
+    ],
+    faqs: [
+      { q: 'How many PDFs can I merge at once?', a: 'You can merge up to 10 PDF files in a single operation. Each file can be any size — the tool processes everything locally in your browser with no upload limits.' },
+      { q: 'Can I reorder the files before merging?', a: 'Yes. After uploading, drag files up or down using the grip handle on the left side of each item. The final merged PDF follows the order shown in the list from top to bottom.' },
+      { q: 'Are my files uploaded to a server?', a: 'No. The entire merge operation runs in your browser using pdf-lib, an open-source JavaScript library. Your files never leave your device. You can verify by disconnecting your internet — the tool still works.' },
+      { q: 'Will the merged PDF preserve formatting and links?', a: 'Yes. The merge copies pages exactly as they are — all text, images, formatting, annotations, bookmarks, and hyperlinks are preserved in the output document.' },
+      { q: 'Is there a file size limit?', a: 'There is no hard limit. The tool has been tested with PDFs up to 100 MB each. Very large documents may take longer to process depending on your device, but a progress bar keeps you informed throughout.' },
+    ],
+  },
+  {
+    slug: 'split-pdf',
+    name: 'Split PDF',
+    category: 'pdf-tools',
+    categoryLabel: 'PDF Tools',
+    description: 'Split PDF into separate files. Extract specific pages or split by page ranges.',
+    longDescription:
+      'ToolWools\' free Split PDF tool lets you extract specific pages from any PDF or split it into multiple smaller files. Select pages visually with thumbnail previews, define custom ranges like "1-3, 5, 7-10", or split every N pages into separate documents. All processing happens locally in your browser.',
+    heroSubheadline:
+      'Extract specific pages from any PDF or split it into multiple smaller files. Select pages visually, define custom ranges, or split every N pages. Free, private, instant.',
+    heroHighlights: ['Visual page selection', 'Custom ranges', 'Split every N pages'],
+    seoTitle: 'Free Split PDF — Extract Pages, Split by Range Online | ToolWools',
+    seoDescription:
+      'Split PDF files for free. Extract specific pages, split by custom ranges, or divide every N pages. Visual page selection, instant download. No signup needed.',
+    tags: ['split pdf', 'extract pdf pages', 'pdf splitter', 'separate pdf', 'remove pdf pages'],
+    relatedTools: ['merge-pdf', 'sign-pdf', 'pdf-compressor'],
+    howToSteps: [
+      { name: 'Upload your PDF', text: 'Drag and drop a PDF onto the upload zone or click to browse. Every page renders as a visual thumbnail for easy selection.' },
+      { name: 'Choose a split mode', text: 'Select Extract Pages to pick individual pages, Split by Range to type ranges like "1-3, 5, 7-10", or Split Every N to divide into equal chunks.' },
+      { name: 'Select your pages', text: 'Click thumbnails to select pages (hold Shift for range selection), or type your custom page ranges. Use Select All, Deselect All, or Invert buttons for quick selection.' },
+      { name: 'Split and download', text: 'Click the Split/Extract button. The resulting PDF(s) are generated instantly and ready to download individually.' },
+    ],
+    faqs: [
+      { q: 'What split modes are available?', a: 'Three modes: Extract Pages lets you click to select specific pages visually. Split by Range lets you type custom ranges like "1-3, 5, 7-10". Split Every N pages divides the PDF into multiple equal-sized documents.' },
+      { q: 'Can I select multiple non-consecutive pages?', a: 'Yes. In Extract Pages mode, click individual thumbnails to toggle selection. Hold Shift and click to select a range. Use the Invert Selection button to quickly flip your selection.' },
+      { q: 'Are my files uploaded to a server?', a: 'No. The entire split operation runs locally in your browser using pdf-lib. Your PDF never leaves your device — no server, no upload, complete privacy.' },
+      { q: 'Does splitting preserve formatting?', a: 'Yes. Pages are copied exactly as they are from the original document. All text, images, formatting, annotations, and links are preserved in the output files.' },
+      { q: 'Is there a page limit?', a: 'There is no hard page limit. The tool renders thumbnails for every page, so very large documents (500+ pages) may take a moment to render, but splitting itself is fast regardless of page count.' },
+    ],
+  },
+  {
     slug: 'domain-authority-checker',
     name: 'Domain Authority Checker',
     category: 'seo-tools',

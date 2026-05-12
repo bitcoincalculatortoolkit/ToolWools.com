@@ -26,6 +26,12 @@ const DomainAuthorityChecker = dynamic(() =>
 const SignPdf = dynamic(() =>
   import('./SignPdf').then((mod) => mod.SignPdf),
 );
+const MergePdf = dynamic(() =>
+  import('./MergePdf').then((mod) => mod.MergePdf),
+);
+const SplitPdf = dynamic(() =>
+  import('./SplitPdf').then((mod) => mod.SplitPdf),
+);
 
 /* ──────────────────────────────────────────────────────────
    Long-form SEO content blocks — one per tool.
@@ -50,6 +56,8 @@ const toolComponents: Record<string, React.ComponentType> = {
   'pdf-compressor': PdfCompressor,
   'domain-authority-checker': DomainAuthorityChecker,
   'sign-pdf': SignPdf,
+  'merge-pdf': MergePdf,
+  'split-pdf': SplitPdf,
 };
 
 const toolSeoContent: Record<string, React.ComponentType> = {
