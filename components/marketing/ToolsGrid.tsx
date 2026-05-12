@@ -22,7 +22,7 @@ const TOOLS = [
   { icon: RotateCw, bg: 'bg-primary-bg', color: 'text-primary', gradientFrom: 'from-primary/5', name: 'Rotate PDF', desc: 'Rotate PDF pages individually or in bulk', href: '/tools/pdf-tools/rotate-pdf' },
   { icon: Trash2, bg: 'bg-blue-bg', color: 'text-blue', gradientFrom: 'from-blue/5', name: 'Delete PDF Pages', desc: 'Remove unwanted pages from any PDF', href: '/tools/pdf-tools/delete-pages' },
   { icon: Stamp, bg: 'bg-green-bg', color: 'text-green', gradientFrom: 'from-green/5', name: 'Watermark PDF', desc: 'Add text or image watermarks to PDFs', href: '/tools/pdf-tools/watermark-pdf' },
-  { icon: Lock, bg: 'bg-primary-bg', color: 'text-primary', gradientFrom: 'from-primary/5', name: 'Protect PDF', desc: 'Password protect or unlock PDF files', href: '/tools/pdf-tools/protect-pdf' },
+  { icon: Lock, bg: 'bg-primary-bg', color: 'text-primary', gradientFrom: 'from-primary/5', name: 'Unlock PDF', desc: 'Remove password protection from PDF files', href: '/tools/pdf-tools/protect-pdf' },
 ];
 
 export function ToolsGrid() {
