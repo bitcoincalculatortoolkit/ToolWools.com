@@ -38,6 +38,9 @@ const WordCounterContent = dynamic(() =>
 const SignPdfContent = dynamic(() =>
   import('./content/SignPdfContent').then((mod) => mod.SignPdfContent),
 );
+const PdfCompressorContent = dynamic(() =>
+  import('./content/PdfCompressorContent').then((mod) => mod.PdfCompressorContent),
+);
 
 const toolComponents: Record<string, React.ComponentType> = {
   'image-compressor': ImageCompressor,
@@ -52,6 +55,7 @@ const toolComponents: Record<string, React.ComponentType> = {
 const toolSeoContent: Record<string, React.ComponentType> = {
   'word-counter': WordCounterContent,
   'sign-pdf': SignPdfContent,
+  'pdf-compressor': PdfCompressorContent,
 };
 
 interface ToolPageClientProps {
