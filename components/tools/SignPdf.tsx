@@ -148,7 +148,6 @@ export function SignPdf() {
 
       // Dynamic import so pdfjs is never bundled server-side.
       const pdfjs = await import('pdfjs-dist');
-      // @ts-expect-error — GlobalWorkerOptions is tagged as namespace.
       pdfjs.GlobalWorkerOptions.workerSrc = PDFJS_WORKER_SRC;
 
       const loadingTask = pdfjs.getDocument({ data: arrayBuffer });
