@@ -430,3 +430,197 @@ body {
   background: #0a0a0a;
   color: #e5e5e5;
 }
+
+
+/* ═══════════════════════════════════════════════
+   BLOG ARTICLE PROSE STYLING
+   ═══════════════════════════════════════════════ */
+
+.prose-article {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--color-body);
+}
+
+.prose-article h1 {
+  color: var(--color-dark);
+  line-height: 1.2;
+}
+
+.prose-article h2 {
+  color: var(--color-dark);
+  line-height: 1.3;
+  margin-top: 2rem;
+}
+
+.prose-article h3 {
+  color: var(--color-dark);
+  line-height: 1.4;
+  margin-top: 1.5rem;
+}
+
+.prose-article p {
+  margin-bottom: 1rem;
+}
+
+.prose-article ul,
+.prose-article ol {
+  margin-bottom: 1rem;
+}
+
+.prose-article li {
+  margin-bottom: 0.25rem;
+}
+
+.prose-article a {
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.prose-article a:hover {
+  text-decoration: underline;
+}
+
+.prose-article code {
+  font-size: 0.875em;
+}
+
+.prose-article strong {
+  color: var(--color-dark);
+  font-weight: 600;
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ═══════════════════════════════════════════════
+   SEO LONG-FORM PROSE STYLING (tool content blocks)
+   ═══════════════════════════════════════════════ */
+
+.seo-prose {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--color-body);
+}
+
+.seo-prose h2 {
+  scroll-margin-top: 100px;
+}
+
+.seo-prose h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+
+.seo-prose p {
+  margin-bottom: 1rem;
+}
+
+.seo-prose p + p {
+  margin-top: 0.75rem;
+}
+
+.seo-prose a {
+  color: var(--color-primary);
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.seo-prose a:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+.seo-prose strong {
+  color: var(--color-dark);
+  font-weight: 600;
+}
+
+.seo-prose em {
+  font-style: italic;
+  color: var(--color-dark);
+}
+
+.seo-prose code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.875em;
+  color: var(--color-dark);
+}
+
+.seo-prose ol,
+.seo-prose ul {
+  margin-bottom: 1rem;
+}
+
+.seo-prose table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+
+
+/* ═══════════════════════════════════════════════
+   TOOL-PAGE SEO CONTENT PROSE
+   ═══════════════════════════════════════════════ */
+.seo-prose {
+  color: var(--color-body);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.seo-prose h2 {
+  scroll-margin-top: 100px;
+}
+
+.seo-prose h3 {
+  scroll-margin-top: 100px;
+}
+
+.seo-prose a:not(.not-prose a) {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.seo-prose a:not(.not-prose a):hover {
+  text-decoration: underline;
+}
+
+.seo-prose ul:not(.not-prose ul),
+.seo-prose ol:not(.not-prose ol) {
+  padding-left: 1.25rem;
+  margin: 1rem 0;
+}
+
+.seo-prose ul:not(.not-prose ul) {
+  list-style: disc;
+}
+
+.seo-prose ol:not(.not-prose ol) {
+  list-style: decimal;
+}
+
+.seo-prose li {
+  margin-bottom: 0.5rem;
+}
+
+.not-prose ul,
+.not-prose ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.not-prose li {
+  margin: 0;
+}

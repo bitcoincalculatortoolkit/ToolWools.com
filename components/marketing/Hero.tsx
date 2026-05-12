@@ -179,7 +179,7 @@ export function Hero() {
           className="mt-9 flex flex-wrap items-center justify-center gap-4"
         >
           <a
-            href="#tools"
+            href="/tools"
             className="group relative inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-primary-dark px-7 py-3.5 text-[15px] font-semibold text-white transition-all duration-300 btn-glow overflow-hidden"
           >
             <span className="relative z-10 flex items-center gap-2">

@@ -16,12 +16,11 @@ import {
 } from 'lucide-react';
 
 const NAV_LINKS = [
-  { label: 'SEO Tools', href: '#tools' },
-  { label: 'Image Tools', href: '#tools' },
-  { label: 'PDF Tools', href: '#tools' },
-  { label: 'AI Tools', href: '#tools' },
-  { label: 'Pricing', href: '#cta' },
-  { label: 'Blog', href: '#' },
+  { label: 'SEO Tools', href: '/tools' },
+  { label: 'Image Tools', href: '/tools' },
+  { label: 'PDF Tools', href: '/tools' },
+  { label: 'AI Tools', href: '/tools' },
+  { label: 'Blog', href: '/blog' },
 ];
 
 const MEGA_MENU_ITEMS = [
@@ -75,14 +74,14 @@ export function Nav() {
       >
         <div className="mx-auto flex h-16 max-w-page items-center justify-between px-4 md:px-6">
           {/* Logo */}
-          <Link href="/" className="group flex items-center gap-2.5" aria-label="ToolStack home">
+          <Link href="/" className="group flex items-center gap-2.5" aria-label="ToolWools home">
             <span className="relative grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-primary to-primary-dark shadow-glow transition-shadow duration-300 group-hover:shadow-glow-lg">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8h10M8 3v10M5 5l6 6M11 5l-6 6" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
             </span>
             <span className="text-[17px] font-bold text-dark transition-all duration-300 group-hover:text-gradient-primary">
-              ToolStack
+              ToolWools
             </span>
           </Link>
 
@@ -116,7 +115,7 @@ export function Nav() {
                       {MEGA_MENU_ITEMS.map((item) => (
                         <Link
                           key={item.label}
-                          href="#tools"
+                          href="/tools"
                           className="group/item flex items-start gap-3 rounded-xl p-3 transition-all duration-200 hover:bg-white/80 hover:shadow-sm"
                           onClick={() => setMegaOpen(false)}
                         >
@@ -159,7 +158,7 @@ export function Nav() {
           <div className="flex items-center gap-3">
             {/* CTA */}
             <Link
-              href="#tools"
+              href="/tools"
               className="relative hidden items-center rounded-xl bg-gradient-to-r from-primary to-primary-dark px-5 py-2.5 text-[14px] font-semibold text-white transition-all duration-300 hover:shadow-glow-lg md:inline-flex overflow-hidden group"
             >
               <span className="relative z-10">Get Started Free</span>
@@ -211,7 +210,7 @@ export function Nav() {
                       <path d="M3 8h10M8 3v10M5 5l6 6M11 5l-6 6" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
                     </svg>
                   </span>
-                  <span className="text-[16px] font-bold text-dark">ToolStack</span>
+                  <span className="text-[16px] font-bold text-dark">ToolWools</span>
                 </Link>
                 <button
                   type="button"
@@ -224,7 +223,7 @@ export function Nav() {
               </div>
 
               <nav className="flex flex-col gap-1 px-4 pt-4">
-                {[{ label: 'Tools', href: '#tools' }, ...NAV_LINKS].map((l, i) => (
+                {[{ label: 'Tools', href: '/tools' }, ...NAV_LINKS].map((l, i) => (
                   <motion.div
                     key={l.label}
                     initial={{ opacity: 0, x: 20 }}
@@ -246,7 +245,7 @@ export function Nav() {
                   transition={{ delay: 0.4, type: 'spring', stiffness: 300, damping: 25 }}
                 >
                   <Link
-                    href="#tools"
+                    href="/tools"
                     onClick={() => setMobileOpen(false)}
                     className="mt-4 flex items-center justify-center rounded-xl bg-gradient-to-r from-primary to-primary-dark px-5 py-3.5 text-[15px] font-semibold text-white shadow-glow"
                   >

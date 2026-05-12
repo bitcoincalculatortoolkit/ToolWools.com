@@ -83,14 +83,14 @@ export function CTABanner() {
               transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="mt-5 text-[16px] leading-relaxed text-white/60"
             >
-              Join 2.4M+ users who trust ToolStack for their daily tasks.
+              Join 2.4M+ users who trust ToolWools for their daily tasks.
             </motion.p>
             <motion.a
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              href="#tools"
+              href="/tools"
               className="group relative mt-8 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-white to-gray-100 px-7 py-3.5 text-[15px] font-semibold text-dark transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] overflow-hidden"
             >
               <span className="relative z-10 flex items-center gap-2">

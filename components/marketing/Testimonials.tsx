@@ -14,7 +14,7 @@ interface Testimonial {
 
 const TESTIMONIALS: Testimonial[] = [
   {
-    quote: "I've used maybe a dozen tools platforms over the years. ToolStack is the only one where I don't feel like I'm fighting the interface to get to the actual tool. The SEO audit alone saves me 45 minutes per client.",
+    quote: "I've used maybe a dozen tools platforms over the years. ToolWools is the only one where I don't feel like I'm fighting the interface to get to the actual tool. The SEO audit alone saves me 45 minutes per client.",
     name: 'Alex Johnson',
     role: 'SEO Specialist · Freelance',
     initials: 'AJ',

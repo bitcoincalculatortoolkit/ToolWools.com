@@ -57,7 +57,7 @@ function SeoCard() {
               </motion.li>
             ))}
           </ul>
-          <a href="#tools" className="group mt-5 inline-flex items-center gap-1.5 text-[14px] font-semibold text-primary transition-all duration-200 hover:gap-2.5">
+          <a href="/tools" className="group mt-5 inline-flex items-center gap-1.5 text-[14px] font-semibold text-primary transition-all duration-200 hover:gap-2.5">
             Explore SEO Tools <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
           </a>
         </div>
@@ -181,7 +181,7 @@ function ImageCard() {
               </motion.li>
             ))}
           </ul>
-          <a href="#tools" className="group mt-5 inline-flex items-center gap-1.5 text-[14px] font-semibold text-primary transition-all duration-200 hover:gap-2.5">
+          <a href="/tools" className="group mt-5 inline-flex items-center gap-1.5 text-[14px] font-semibold text-primary transition-all duration-200 hover:gap-2.5">
             Explore Image Tools <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
           </a>
         </div>
