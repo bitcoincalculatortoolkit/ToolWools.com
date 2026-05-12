@@ -32,7 +32,6 @@ import {
   Image as ImageIcon,
   Pencil,
   Plus,
-  RotateCcw,
   Shield,
   Trash2,
   Type as TypeIcon,

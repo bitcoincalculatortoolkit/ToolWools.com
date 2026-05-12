@@ -11,13 +11,9 @@ import * as React from 'react';
 import { useCallback, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  CheckSquare,
   Download,
-  FileText,
   Loader2,
-  RefreshCw,
   Shield,
-  Square,
   Trash2,
   Upload,
   X,

@@ -9,16 +9,14 @@
 
 import * as React from 'react';
 import { useCallback, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   CheckSquare,
   Download,
-  FileText,
   Loader2,
   RotateCcw,
   RotateCw,
   Shield,
-  Square,
   Upload,
   X,
 } from 'lucide-react';
@@ -48,9 +46,6 @@ export function RotatePdf() {
   const [isDragging, setIsDragging] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const pdfBytesRef = useRef<ArrayBuffer | null>(null);
-
-  /* ─── Helpers ─── */
-  const uid = () => Math.random().toString(36).slice(2) + Date.now().toString(36);
 
   /* ─── Load PDF + render thumbnails ─── */
   const handleFile = useCallback(async (selected: File) => {

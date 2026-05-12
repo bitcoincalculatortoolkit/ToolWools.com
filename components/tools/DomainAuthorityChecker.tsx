@@ -7,7 +7,6 @@ import {
   Search,
   Link2,
   Clock,
-  TrendingUp,
   Shield,
   Loader2,
   History,

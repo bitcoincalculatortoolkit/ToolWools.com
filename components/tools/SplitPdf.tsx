@@ -18,7 +18,6 @@ import {
   Loader2,
   Scissors,
   Shield,
-  Square,
   Upload,
   X,
 } from 'lucide-react';
