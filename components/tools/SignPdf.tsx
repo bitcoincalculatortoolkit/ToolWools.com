@@ -530,7 +530,7 @@ export function SignPdf() {
               type="button"
               onClick={handleDownload}
               disabled={downloading || !stamps.length}
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-[14px] font-semibold text-white btn-glow disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-[14px] font-semibold text-white btn-glow disabled:opacity-50 disabled:cursor-not-allowed transition-[...]"
             >
               <Download size={15} />
               {downloading
@@ -1072,6 +1072,16 @@ const PageEditor = React.forwardRef<HTMLDivElement, PageEditorProps>(function Pa
 ) {
   const surfaceRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    if (ref && surfaceRef.current) {
+      if (typeof ref === 'function') {
+        ref(surfaceRef.current);
+      } else if ('current' in ref) {
+        ref.current = surfaceRef.current;
+      }
+    }
+  }, [ref]);
+
   return (
     <div className="rounded-2xl border border-border/60 bg-white shadow-card overflow-hidden">
       {/* Page nav header */}
@@ -1104,11 +1114,7 @@ const PageEditor = React.forwardRef<HTMLDivElement, PageEditorProps>(function Pa
 
       {/* Page surface */}
       <div
-        ref={(el) => {
-          surfaceRef.current = el;
-          if (typeof ref === 'function') ref(el);
-          else if (ref) (ref as React.MutableRefObject<HTMLDivElement | null>).current = el;
-        }}
+        ref={surfaceRef}
         className="relative bg-gray-100 flex justify-center p-5 overflow-auto"
         onClick={(e) => {
           // Click on empty surface -> deselect.
